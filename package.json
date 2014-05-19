@@ -1,0 +1,9 @@
+{
+  "name": "Contour-Geo",
+  "description": "Geo related components for Forio Contour",
+  "version": "0.1.0",
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "d3": "~3.3.0"
+  },
+}
