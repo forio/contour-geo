@@ -3,13 +3,38 @@
 
     var defaults = {
         USChoropleth: {
+            // the data set in topoJson format
+            topoJson: undefined,
+            // topoJson feature to render as a map (will acccess topoJson.objects[options.feature])
+            feature: 'states',
+            // scale to be used by the projection, if left undefined
+            // scale will be chart.plotWidth * scaleRatio
             scale: undefined,
             // a nice scale ratio for US Map with albersUsa projection
             scaleRatio: 1.3333,
-            feature: 'states'
         }
     };
 
+
+    /**
+    * Create a Choropleth map visualization
+    *
+    * ### Example:
+    *       var cssClassByState = { 'CA': 'range-1', 'AZ': 'range-2' .... }
+    *       d3.json('us-states.json', function (us) {
+    *       new Contour({ el: '.map' })
+    *           .choropleth({
+    *               topoJson: us,
+    *               cssClass: function (d) { return cssClassByState[d.id]; }
+    *           })
+    *           .tooltip()
+    *           .render()
+    *
+    *       });
+    *
+    *
+    * @function choropleth
+    */
     function choropleth(data, layer, options) {
         var width = options.chart.plotWidth;
         var height = options.chart.plotHeight;
