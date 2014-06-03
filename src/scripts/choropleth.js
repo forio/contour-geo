@@ -17,7 +17,8 @@
 
 
     /**
-    * Create a Choropleth map visualization
+    * Create a Choropleth map visualization using albersUsa project
+    * Best suited for US maps
     *
     * ### Example:
     *       var cssClassByState = { 'CA': 'range-1', 'AZ': 'range-2' .... }
@@ -33,7 +34,7 @@
     *       });
     *
     *
-    * @function choropleth
+    * @function USChoropleth
     */
     function choropleth(data, layer, options) {
         var width = options.chart.plotWidth;
