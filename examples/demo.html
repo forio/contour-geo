@@ -1,0 +1,137 @@
+<html>
+<head>
+
+    <link rel="stylesheet" href="http://forio.com/tools/contour/contour.min.css">
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+    <script src="http://forio.com/tools/contour/contour.min.js"></script>
+
+    <script src="../src/scripts/choropleth.js"></script>
+
+    <style>
+
+    .background {
+      fill: none;
+      pointer-events: all;
+    }
+
+    #states {
+      fill: #dbdde3;
+    }
+
+    #states .active {
+      fill: orange;
+    }
+
+    #state-borders {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 0.5px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      pointer-events: none;
+    }
+
+    .selected {
+        fill: red;
+    }
+
+    .r0 {
+        fill: #dbdde3;
+    }
+
+    /* yellow */
+    .r1 {
+
+        fill: rgb(195, 214, 9);
+    }
+
+    /* green */
+    .r2 {
+        fill: #7bca43;
+    }
+
+    /* map medium dark */
+    .r3 {
+        fill: #17994f;
+    }
+
+    /* map dark green */
+    .r4 {
+        fill: #025626;
+    }
+
+    .map {
+        width: 600px;
+    }
+
+    .nw-tooltip {
+        padding: 1em;
+    }
+
+    .stateName {
+        font-size: 12px;
+        display: block;
+        margin-top: 1em;
+    }
+
+    .population:before {
+        content: 'Population: ';
+    }
+
+    .population {
+        font-size: 14px;
+        display: block;
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="map"></div>
+
+
+<script>
+
+    var populationByState = { CA: 38332521, TX: 26448193, NY: 19651127, FL: 19552860, IL: 12882135, PA: 12773801, OH: 11570808, GA: 9992167, MI: 9895622, NC: 9848060, NJ: 8899339, VA: 8260405, WA: 6971406, MA: 6692824, AZ: 6626624, IN: 6570902, TN: 6495978, MO: 6044171, MD: 5928814, WI: 5742713, MN: 5420380, CO: 5268367, AL: 4833722, SC: 4774839, LA: 4625470, KY: 4395295, OR: 3930065, OK: 3850568, PA: 3615086, CT: 3596080, IA: 3090416, MS: 2991207, AR: 2959373, UT: 2900872, KS: 2893957, NV: 2790136, NM: 2085287, NE: 1868516, WV: 1854304, ID: 1612136, HI: 1404054, ME: 1328302, NH: 1323459, RI: 1051511, MT: 1015165, DE: 925749, SD: 844877, AK: 735132, ND: 723393, DC: 646449, VT: 626630, WY: 582658 };
+
+    var data = _.pick(populationByState, ['CA', 'TX', 'AZ', 'NY', 'FL', 'IL']);
+
+    var colorScale = d3.scale.quantize()
+        .domain([582658, 38332521])
+        .range(d3.range(5).map(function (r) { return 'r' + r; }));
+
+    var classFn = function (d) {
+        return colorScale(populationByState[d.id]);
+    }
+
+
+    var tooltipTemplate = '<span class="population"><%= population %></span><span class="stateName"><%= name %></span>';
+    var numberFormatter = d3.format(',.0f');
+    d3.json('us-all.json', function (us) {
+
+        new Contour({
+            el: '.map',
+            tooltip: {
+                formatter: function (d, i, j) {
+                    return _.template(tooltipTemplate, { name: d.properties.name, population: numberFormatter(populationByState[d.id]) } );
+                }
+            }
+        })
+        .USChoropleth({
+            topoJson: us,
+        }, { classFn: classFn })
+        .tooltip()
+        .render();
+    });
+
+
+</script>
+
+</body>
+</html>
