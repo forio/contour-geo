@@ -125,7 +125,8 @@
         })
         .USChoropleth({
             topoJson: us,
-        }, { classFn: classFn })
+            cssClass: classFn
+        })
         .tooltip()
         .render();
     });
