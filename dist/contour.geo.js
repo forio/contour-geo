@@ -46,3 +46,5 @@
 
     Contour.export('USChoropleth', choropleth);
 })();
+
+Contour.geo.version = '0.1.1';
