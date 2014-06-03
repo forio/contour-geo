@@ -58,7 +58,7 @@
                 .data(topojson.feature(us, us.objects[options.USChoropleth.feature]).features)
             .enter().append('path')
                 .attr('id', function (d) { return d.id; })
-                .attr('class', function(d) { return 'tooltip-tracker ' + classFn(d); })
+                .attr('class', function(d) { return 'tooltip-tracker state ' + classFn(d); })
                 .attr('fill', fillFn)
                 .attr('d', path);
 

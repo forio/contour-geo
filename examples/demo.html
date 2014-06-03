@@ -8,6 +8,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
 
     <script src="lib/contour.js"></script>
+    <script src="../dist/contour.geo.js"></script>
     <script src="../src/scripts/choropleth.js"></script>
 
     <style>
@@ -64,6 +65,25 @@
         display: block;
     }
 
+    .small-state-callout {
+        font-family: monospace;
+        font-size: 12px;
+    }
+
+    .small-state-callout line {
+        fill: none;
+        stroke: #999;
+    }
+    .small-state-callout rect {
+        stroke: #999;
+    }
+
+    .small-state-callout text {
+        fill: #444;
+        stroke: none;
+        text-anchor: middle;
+        pointer-events: none;
+    }
     </style>
 </head>
 <body>
@@ -73,16 +93,12 @@
 
 <script>
 
+
     var populationByState = { CA: 38332521, TX: 26448193, NY: 19651127, FL: 19552860, IL: 12882135, PA: 12773801, OH: 11570808, GA: 9992167, MI: 9895622, NC: 9848060, NJ: 8899339, VA: 8260405, WA: 6971406, MA: 6692824, AZ: 6626624, IN: 6570902, TN: 6495978, MO: 6044171, MD: 5928814, WI: 5742713, MN: 5420380, CO: 5268367, AL: 4833722, SC: 4774839, LA: 4625470, KY: 4395295, OR: 3930065, OK: 3850568, PA: 3615086, CT: 3596080, IA: 3090416, MS: 2991207, AR: 2959373, UT: 2900872, KS: 2893957, NV: 2790136, NM: 2085287, NE: 1868516, WV: 1854304, ID: 1612136, HI: 1404054, ME: 1328302, NH: 1323459, RI: 1051511, MT: 1015165, DE: 925749, SD: 844877, AK: 735132, ND: 723393, DC: 646449, VT: 626630, WY: 582658 };
 
     var colorScale = d3.scale.quantize()
         .domain([0, 38332521])
-        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }))
-
-    var classFn = function (d) {
-        return colorScale(populationByState[d.id]);
-    }
-
+        .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
     var tooltipTemplate = '<span class="population"><%= population %></span><span class="stateName"><%= name %></span>';
     var numberFormatter = d3.format(',.0f');
 
@@ -97,8 +113,9 @@
         })
         .USChoropleth({
             topoJson: us,
-            cssClass: classFn
+            cssClass: function (d) { return colorScale(populationByState[d.id]); }
         })
+        .smallStatesCallouts()
         .tooltip()
         .render();
     });
