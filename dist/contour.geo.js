@@ -94,10 +94,9 @@
             .projection(projection);
 
         var getCentroid = function (element) {
-            var parentBox = element.offsetParent.getBoundingClientRect();
             var bbox = element.getBoundingClientRect();
 
-            return [bbox.left - parentBox.left + bbox.width/2, bbox.top - parentBox.top + bbox.height/2];
+            return [bbox.left + bbox.width/2, bbox.top + bbox.height/2];
         };
 
         var map = this.svg.select('#states');
@@ -148,4 +147,4 @@
     });
 })();
 
-Contour.geo.version = '0.1.3';
+Contour.geo.version = '0.1.4';
