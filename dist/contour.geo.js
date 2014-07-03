@@ -93,12 +93,6 @@
         var path = d3.geo.path()
             .projection(projection);
 
-        var getCentroid = function (element) {
-            var bbox = element.getBoundingClientRect();
-
-            return [bbox.left + bbox.width/2, bbox.top + bbox.height/2];
-        };
-
         var map = this.svg.select('#states');
         var rectHeight = 20;
         var rectWidth = 20;
@@ -119,7 +113,7 @@
                     return 'translate(' + (width - rectWidth) + ',' + (offsetY + rectHeight * index + (rectPadding - 1) * index) + ')';
                 });
 
-            var tbCentroid = getCentroid(textBox.node());
+            var tbCentroid = _.nw.getCentroid(textBox.node());
 
             line.attr('x2', tbCentroid[0])
                 .attr('y2', tbCentroid[1]);
