@@ -18,6 +18,13 @@ module.exports = function (grunt) {
             }
         },
 
+        releaseNotes: {
+            files: [],
+            options: {
+                dest: 'dist/contour-geo-release-notes.txt'
+            }
+        },
+
         bumpup: {
             options: {
                 updateProps: {
@@ -68,7 +75,7 @@ module.exports = function (grunt) {
 
     // Default task.
     grunt.registerTask('default', ['concat', 'uglify', 'watch']);
-    grunt.registerTask('production', ['concat', 'uglify']);
+    grunt.registerTask('production', ['concat', 'uglify', 'releaseNotes']);
     grunt.registerTask('relase', function (type) {
         type = type ? type : 'patch';
         ['bumpup:' + type, 'ver', 'concat', 'uglify', 'tagrelease'].forEach(function (task) {
@@ -76,6 +83,17 @@ module.exports = function (grunt) {
         });
     });
 
+
+    grunt.registerMultiTask('releaseNotes', 'Generate a release notes file with changes in git log since last tag', function () {
+        var options = this.options({
+            dest: 'dist/release-notes.txt'
+        });
+
+        var cmd = 'git log --pretty="format:  * %s"  `git describe --tags --abbrev=0`..HEAD > ' + options.dest;
+        grunt.log.verbose.writeln('executing', cmd);
+        var log = require('shelljs').exec(cmd).output;
+        grunt.file.write(options.dest, log);
+    });
 
     grunt.registerMultiTask('ver', 'Update version file with what\'s in package.json', function () {
         var pkg = require('./package.json');
