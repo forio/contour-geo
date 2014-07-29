@@ -53,7 +53,7 @@
 
         var g = layer;
 
-        g.append('g').attr('id', 'states')
+        g.append('g').attr('id', options.USChoropleth.feature)
             .selectAll('path')
                 .data(topojson.feature(us, us.objects[options.USChoropleth.feature]).features)
             .enter().append('path')
