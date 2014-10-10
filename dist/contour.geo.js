@@ -147,4 +147,4 @@
     });
 })();
 
-Contour.geo.version = '0.9.99';
+Contour.geo.version = '0.9.105';
