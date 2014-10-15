@@ -14,7 +14,7 @@ If left undefined, the `scale` is set to [`chart.plotWidth`](#core_config/config
 	.choropleth(mapUnit, { scale: 800 })
 	.render();
 
-<!-- TODO: *[Try it.](<%= jsFiddleLink %>)* -->
+*[Try it.](<%= jsFiddleLink %>)*
 
 **Notes:**
 
