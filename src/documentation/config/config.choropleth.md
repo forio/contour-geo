@@ -19,7 +19,7 @@ Alternatively, pass the options as the second argument to the `choropleth` visua
 	})
 	.render()	
 
-<!-- TODO: *[Try it.](<%= jsFiddleLink %>)* -->
+*[Try it.](<%= jsFiddleLink %>)*
 
 <% if(notes) { %><%= notes %><% } %>
 
