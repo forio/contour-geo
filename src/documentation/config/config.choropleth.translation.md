@@ -18,7 +18,7 @@ For instance, if your Contour instance is rendered in a `<div>` that is 600x800,
 	})
 	.render();	
 
-<!-- TODO: *[Try it.](<%= jsFiddleLink %>)* -->
+*[Try it.](<%= jsFiddleLink %>)*
 
 **Notes:**
 

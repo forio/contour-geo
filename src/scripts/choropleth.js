@@ -57,7 +57,7 @@
 
         var projection = options.choropleth.projection
             .scale(options.choropleth.scale || width * scaleRatio)
-            //.center(options.choropleth.center || [0,0])
+            .center(options.choropleth.center || [0,0])
             .translate(options.choropleth.translation || [width / 2, height / 2]);
 
         var path = d3.geo.path()

@@ -1,0 +1,6 @@
+---
+ name: config.choropleth.translation
+ authors:
+   - Forio
+ normalize_css: no
+ ...
