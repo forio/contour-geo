@@ -28,7 +28,7 @@ All of the [D3 Geo Projections](https://github.com/mbostock/d3/wiki/Geo-Projecti
 	.choropleth(mapUnit, { projection: d3.geo.mercator() })
 	.render();
 
-<!-- TODO: *[Try it.](<%= jsFiddleLink %>)* -->
+*[Try it.](<%= jsFiddleLink %>)*
 
 **Notes:**
 
