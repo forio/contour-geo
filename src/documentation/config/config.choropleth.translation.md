@@ -11,7 +11,7 @@ For instance, if your Contour instance is rendered in a `<div>` that is 600x800,
 	new Contour({
 		el: '.myMap'
 	})
-	.choropleth(mapUnit, { 
+	.choropleth({ topoJson: mapUnit }, { 
 		projection: d3.geo.mercator(), 
 		center: [-122, 37], 
 		translation: [300,400] 

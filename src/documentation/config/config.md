@@ -19,7 +19,7 @@ Each set of options can be added:
 		  el: '.myMap',
 		  choropleth: { projection: d3.geo.albers() }
 		})
-		.choropleth(mapUnit, { projection: d3.geo.mercator() } )
+		.choropleth({ topoJson: mapUnit }, { projection: d3.geo.mercator() } )
 		.render();
 
 Each configuration option can be:

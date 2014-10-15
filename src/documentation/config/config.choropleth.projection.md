@@ -25,7 +25,7 @@ All of the [D3 Geo Projections](https://github.com/mbostock/d3/wiki/Geo-Projecti
 	new Contour({
 		el: '.myMap'
 	})
-	.choropleth(mapUnit, { projection: d3.geo.mercator() })
+	.choropleth({ topoJson: mapUnit }, { projection: d3.geo.mercator() })
 	.render();
 
 *[Try it.](<%= jsFiddleLink %>)*

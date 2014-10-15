@@ -14,10 +14,10 @@ Alternatively, pass the options as the second argument to the `choropleth` visua
 			// choropleth-specific configuration options
 		}
 	})
-	.choropleth(mapUnit, { 
+	.choropleth({ topoJson: mapUnit }, { 
 		// additional choropleth-specific configuration options 
 	})
-	.render()	
+	.render();
 
 *[Try it.](<%= jsFiddleLink %>)*
 

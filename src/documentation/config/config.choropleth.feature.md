@@ -32,7 +32,7 @@ When you are [creating your own TopoJSON file](#topojson), this name defaults to
 		new Contour({
 			el: '.myMap'
 		})
-		.choropleth(mapUnit, { feature: 'counties' })
+		.choropleth({ topoJson: mapUnit }, { feature: 'counties' })
 		.render();
 
 *[Try it.](<%= jsFiddleLink %>)*

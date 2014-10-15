@@ -16,7 +16,7 @@ Must remain undefined if using the [`d3.geo.albersUsa()` projection](#geo_config
 	new Contour({
 		el: '.myMap'
 	})
-	.choropleth(mapUnit,
+	.choropleth({ topoJson: mapUnit },
 		{ projection: d3.geo.mercator(), center: [-122, 37] })
 	.render();
 
