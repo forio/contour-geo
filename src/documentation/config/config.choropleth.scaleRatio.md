@@ -11,10 +11,10 @@ If [`scale`](#geo_config/config.choropleth.scale) is defined, this property is i
 	new Contour({
 		el: '.myMap'
 	})
-	.choropleth(mapUnit, { scaleRatio: 1.618 })
+	.choropleth(mapUnit, { scaleRatio: 1.2 })
 	.render();
 
-<!-- TODO: *[Try it.](<%= jsFiddleLink %>)* -->
+*[Try it.](<%= jsFiddleLink %>)*
 
 **Notes:**
 

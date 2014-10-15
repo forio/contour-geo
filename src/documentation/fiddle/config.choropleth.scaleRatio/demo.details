@@ -1,0 +1,6 @@
+---
+ name: config.choropleth.scaleRatio
+ authors:
+   - Forio
+ normalize_css: no
+ ...
