@@ -35,7 +35,7 @@ When you are [creating your own TopoJSON file](#topojson), this name defaults to
 		.choropleth(mapUnit, { feature: 'counties' })
 		.render();
 
-<!-- TODO: *[Try it.](<%= jsFiddleLink %>)* -->
+*[Try it.](<%= jsFiddleLink %>)*
 
 **Notes:**
 
