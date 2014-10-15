@@ -1,0 +1,7 @@
+---
+ name: US Choropleth, Shaded by Data
+ description: Create basic choropleths, or map visualizations, by adding .choropleth() to your Contour instance. You can use both the tooltip.formatter and the choropleth cssClass configuration options to update the appearance of your visualization based on data in the underlying TopoJSON file.
+ authors:
+   - Forio
+ normalize_css: no
+ ...
