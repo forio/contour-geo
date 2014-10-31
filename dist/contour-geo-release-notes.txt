@@ -1,1 +1,24 @@
-  * updated version file to 0.9.99
+  * Merge pull request #10 from forio/contour-geo-0.9.10x-gallery
+  * Merge pull request #9 from forio/contour-geo-0.9.10x-docs
+  * Merge pull request #8 from forio/choropleth-more-generic-and-configurable
+  * Merge pull request #7 from forio/dist-topojson
+  * gallery: us basic (update)
+  * gallery: california + lakes + rivers (work in progress)
+  * gallery: world
+  * gallery: us, colored by population data
+  * gallery: us with small states callout
+  * gallery: us basic
+  * make sure we're passing data into .choropleth as {topoJson: data}, not just data
+  * fiddle sample for config.choropleth.translation
+  * fiddle sample for config.choropleth.scaleRatio
+  * fiddle sample for config.choropleth.scale
+  * fiddle sample for config.choropleth.projection
+  * fiddle sample for config.choropleth.feature
+  * fiddle sample for config.choropleth.center
+  * fiddle sample for config.choropleth
+  * proposed topoJSON files to include with Contour-Geo download
+  * more build infrastructure
+  * docs for configuration properties and general info
+  * infrastructure for building docs
+  * update small-states-callout for USChoropleth --> choropleth
+  * make USChoropleth more generic
