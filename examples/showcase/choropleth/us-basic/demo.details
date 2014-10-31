@@ -1,0 +1,7 @@
+---
+ name: Basic US Choropleth
+ description: Create basic choropleths, or map visualizations, by adding .choropleth() to your Contour instance. Choropleth visualizations require a TopoJSON file with the topology to draw. Wrapping the entire Contour instance in a d3.json() call that reads in a TopoJSON file included with your Contour-Geo download is an easy way to include this data. Then, use configuration options to set properties of the choropleth. The default configuration options are designed for a US map with an Albers USA projection.
+ authors:
+   - Forio
+ normalize_css: no
+ ...

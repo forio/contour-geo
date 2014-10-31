@@ -1,0 +1,7 @@
+---
+ name: US Choropleth with Small States Callout
+ description: Create basic choropleths, or map visualizations, by adding .choropleth() to your Contour instance. Use configuration options to set properties of the choropleth. The default configuration options are designed for a US map with an Albers USA projection. With this configuration, you can add the .smallStatesCallouts() visualization to the same Contour instance.
+ authors:
+   - Forio
+ normalize_css: no
+ ...

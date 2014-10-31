@@ -1,0 +1,42 @@
+.myMap {
+    width: 600px;
+}
+
+.background {
+    fill: none;
+    pointer-events: all;
+}
+
+#states {
+    fill: #dbdde3;
+}
+
+#state-borders {
+    fill: none;
+    stroke: #999;
+    stroke-width: 0.5px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+.small-state-callout {
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.small-state-callout line {
+    fill: none;
+    stroke: #999;
+}
+.small-state-callout rect {
+    fill: #dbdde3;
+    stroke: #999;
+}
+
+.small-state-callout text {
+    fill: #444;
+    stroke: none;
+    text-anchor: middle;
+    pointer-events: none;
+}
