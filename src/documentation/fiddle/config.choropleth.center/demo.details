@@ -1,0 +1,6 @@
+---
+ name: config.choropleth.center
+ authors:
+   - Forio
+ normalize_css: no
+ ...
