@@ -6,14 +6,14 @@
             // the data set in topoJson format
             topoJson: undefined,
             // topoJson feature to render as a map (will acccess topoJson.objects[options.feature])
-            feature: 'states',
+            feature: '',
             // scale to be used by the projection, 
             // if left undefined, scale will be chart.plotWidth * scaleRatio
             scale: undefined,
-            // a nice scale ratio for US Map with albersUsa projection
+            // a nice scale ratio
             scaleRatio: 1.3333,
             // valid options are at https://github.com/mbostock/d3/wiki/Geo-Projections
-            projection: d3.geo.albersUsa(),
+            projection: d3.geo.mercator(),
             // array of [longitute, latitude] 
             center: undefined,
             // translates the pixel coordinates of center based on array of [x, y] 
