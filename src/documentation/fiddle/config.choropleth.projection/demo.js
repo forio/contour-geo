@@ -3,6 +3,6 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .choropleth({topoJson: mapUnit}, { projection: d3.geo.mercator(), feature: 'countries', scale: 300 })
+        .choropleth({topoJson: mapUnit}, { projection: d3.geo.azimuthalEqualArea(), feature: 'countries', scale: 300 })
         .render();
 });

@@ -1,6 +1,6 @@
 #### **projection** : {<%= type %>}
 
-*default: d3.geo.albersUsa()*
+*default: d3.geo.mercator()*
 
 The projection to use for your Contour-Geo visualization.
 
@@ -25,7 +25,7 @@ All of the [D3 Geo Projections](https://github.com/mbostock/d3/wiki/Geo-Projecti
 	new Contour({
 		el: '.myMap'
 	})
-	.choropleth({ topoJson: mapUnit }, { projection: d3.geo.mercator() })
+	.choropleth({ topoJson: mapUnit }, { projection: d3.geo.azimuthalEqualArea() })
 	.render();
 
 *[Try it.](<%= jsFiddleLink %>)*

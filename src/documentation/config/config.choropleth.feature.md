@@ -32,7 +32,10 @@ When you are [creating your own TopoJSON file](#topojson), this name defaults to
 		new Contour({
 			el: '.myMap'
 		})
-		.choropleth({ topoJson: mapUnit }, { feature: 'counties' })
+		.choropleth({ topoJson: mapUnit }, { 
+			feature: 'counties',
+			projection: d3.geo.albersUsa() 
+		})
 		.render();
 
 *[Try it.](<%= jsFiddleLink %>)*

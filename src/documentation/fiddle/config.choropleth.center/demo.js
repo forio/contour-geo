@@ -4,7 +4,7 @@ $(function () {
             el: '.myMap'
         })
         .choropleth({topoJson: mapUnit},
-            { feature: 'countries', projection: d3.geo.mercator(), center: [-122, 37]})
+            { feature: 'countries', center: [-122, 37]})
         .render();
     })
 });

@@ -17,7 +17,7 @@ Must remain undefined if using the [`d3.geo.albersUsa()` projection](#geo_config
 		el: '.myMap'
 	})
 	.choropleth({ topoJson: mapUnit },
-		{ projection: d3.geo.mercator(), center: [-122, 37] })
+		{ feature: 'countries', center: [-122, 37] })
 	.render();
 
 *[Try it.](<%= jsFiddleLink %>)*

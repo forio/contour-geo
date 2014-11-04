@@ -5,7 +5,6 @@ $(function () {
         })
         .choropleth({topoJson: mapUnit}, {
             feature: 'countries', 
-			projection: d3.geo.mercator(), 
 			center: [-122, 37], 
 			translation: [300,400] 
 		})

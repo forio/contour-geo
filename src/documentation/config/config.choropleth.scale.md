@@ -11,7 +11,10 @@ If left undefined, the `scale` is set to [`chart.plotWidth`](#core_config/config
 	new Contour({
 		el: '.myMap'
 	})
-	.choropleth({ topoJson: mapUnit }, { scale: 800 })
+	.choropleth({ topoJson: mapUnit }, { 
+		feature: 'states',
+		scale: 800 
+	})
 	.render();
 
 *[Try it.](<%= jsFiddleLink %>)*
