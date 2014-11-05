@@ -15,7 +15,6 @@
             // valid options are at https://github.com/mbostock/d3/wiki/Geo-Projections
             projection: d3.geo.albersUsa(),
             // array of [longitute, latitude] 
-            // not valid for projection of d3.geo.albersUsa() -- must be undefined for that 
             center: undefined,
             // translates the pixel coordinates of center based on array of [x, y] 
             translation: undefined
@@ -57,8 +56,11 @@
 
         var projection = options.choropleth.projection
             .scale(options.choropleth.scale || width * scaleRatio)
-            .center(options.choropleth.center || [0,0])
             .translate(options.choropleth.translation || [width / 2, height / 2]);
+
+        if (projection.center) {
+            projection.center(options.choropleth.center || [0,0]);
+        }
 
         var path = d3.geo.path()
             .projection(projection);
@@ -178,4 +180,4 @@
     });
 })();
 
-Contour.geo.version = '0.9.106';
+Contour.geo.version = '0.9.107';
