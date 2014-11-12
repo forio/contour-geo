@@ -47,3 +47,11 @@ OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ```
+
+
+### Map data
+Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.
+
+
+### Color Brewer
+Map colors based on www.ColorBrewer.org, by Cynthia A. Brewer, Penn State.
