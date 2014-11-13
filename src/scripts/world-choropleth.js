@@ -19,5 +19,5 @@
     };
 
 
-    Contour.export('WorldChoropleth', renderer);
+    Contour.export('worldChoropleth', renderer);
 })();
