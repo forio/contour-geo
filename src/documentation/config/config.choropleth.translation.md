@@ -12,7 +12,7 @@ For instance, if your Contour instance is rendered in a `<div>` that is 600x800,
 		el: '.myMap'
 	})
 	.choropleth({ topoJson: mapUnit }, { 
-		projection: d3.geo.mercator(), 
+		feature: 'countries',
 		center: [-122, 37], 
 		translation: [300,400] 
 	})
@@ -22,6 +22,6 @@ For instance, if your Contour instance is rendered in a `<div>` that is 600x800,
 
 **Notes:**
 
-The choropleth projection defaults to [`d3.geo.albersUsa`](https://github.com/mbostock/d3/wiki/Geo-Projections). 
+The choropleth projection defaults to [`d3.geo.mercator`](https://github.com/mbostock/d3/wiki/Geo-Projections). 
 
 

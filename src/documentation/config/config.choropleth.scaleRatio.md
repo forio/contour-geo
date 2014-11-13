@@ -11,12 +11,15 @@ If [`scale`](#geo_config/config.choropleth.scale) is defined, this property is i
 	new Contour({
 		el: '.myMap'
 	})
-	.choropleth({ topoJson: mapUnit }, { scaleRatio: 1.2 })
+	.choropleth({ topoJson: mapUnit }, { 
+		feature: 'states',
+		scaleRatio: 1.2 
+	})
 	.render();
 
 *[Try it.](<%= jsFiddleLink %>)*
 
 **Notes:**
 
-The choropleth projection defaults to [`d3.geo.albersUsa`](https://github.com/mbostock/d3/wiki/Geo-Projections). 
+The choropleth projection defaults to [`d3.geo.mercator`](https://github.com/mbostock/d3/wiki/Geo-Projections). 
 

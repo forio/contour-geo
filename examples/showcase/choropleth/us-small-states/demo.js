@@ -3,7 +3,7 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .choropleth({topoJson: mapUnit})
+        .choropleth({ topoJson: mapUnit }, { projection: d3.geo.albersUsa(), feature: 'states' })
         .smallStatesCallouts()
         .render();
     })

@@ -12,6 +12,7 @@ $(function () {
     d3.json('http://forio.com/tools/contour/geo/us-all.json', function (us) {
         new Contour({
             el: '.myMap',
+            choropleth: { projection: d3.geo.albersUsa(), feature: 'states' },
             tooltip: {
                 formatter: function (d, i, j) {
                     return _.template(tooltipTemplate, { name: d.properties.name, population: numberFormatter(populationDensity[d.id]) } );

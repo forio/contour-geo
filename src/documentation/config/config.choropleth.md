@@ -16,6 +16,7 @@ Alternatively, pass the options as the second argument to the `choropleth` visua
 	})
 	.choropleth({ topoJson: mapUnit }, { 
 		// additional choropleth-specific configuration options 
+		feature: 'countries'
 	})
 	.render();
 
