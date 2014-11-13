@@ -65,7 +65,7 @@
     .q8-9{fill:rgb(8,48,107)}
 
     .map {
-        width: 1500px;
+        width: 600px;
         /*height: 960px;*/
     }
 
@@ -91,6 +91,7 @@
     .small-state-callout {
         font-family: monospace;
         font-size: 12px;
+        fill: #ddd;
     }
 
     .small-state-callout line {
@@ -133,8 +134,8 @@
     var tooltipTemplate = '<span class="population"><%= population %></span><span class="stateName"><%= name %></span>';
     var numberFormatter = d3.format(',.0f');
 
-    // d3.json('us-all.json', function (map) {
-    d3.json('world.json', function(map) {
+    d3.json('us-all.json', function (map) {
+    // d3.json('world.json', function(map) {
         new Contour({
             el: '.map',
             chart: {
@@ -146,13 +147,18 @@
                 }
             }
         })
-        .WorldChoropleth({
+        .USChoropleth({
             topoJson: map,
-            cssClass: function (d) {
-                return  colorScale(d.properties.mapcolor7);
-            }
 
         })
+        .smallStatesCallouts()
+        // .WorldChoropleth({
+        //     topoJson: map,
+        //     cssClass: function (d) {
+        //         return  colorScale(d.properties.mapcolor7);
+        //     }
+
+        // })
         .tooltip()
         .render();
     });
