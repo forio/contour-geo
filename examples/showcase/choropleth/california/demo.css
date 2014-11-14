@@ -20,11 +20,15 @@
 }
 
 #rivers_large {
-	fill: #1589FF;
+	stroke: #1589FF;
+    stroke-width: 2px;
+    fill: none;
 }
 
 #rivers_small {
-	fill: #1589FF;
+	stroke: #1589FF;
+    stroke-width: 2px;
+    fill: none;
 }
 
 #state-borders {
