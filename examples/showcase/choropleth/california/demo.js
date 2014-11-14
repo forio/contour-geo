@@ -20,11 +20,11 @@ $(function () {
                 }
             }
         })
-        .choropleth({ topoJson: mapUnit }, { feature: 'ca' })
-        .choropleth({ topoJson: mapUnit }, { feature: 'lakes_ca' })
-        .choropleth({ topoJson: mapUnit }, { feature: 'lakes_supp' })
-        .choropleth({ topoJson: mapUnit }, { feature: 'rivers_large' })
-        .choropleth({ topoJson: mapUnit }, { feature: 'rivers_small' })
+        .choropleth(mapUnit, { feature: 'ca' })
+        .choropleth(mapUnit, { feature: 'lakes_ca' })
+        .choropleth(mapUnit, { feature: 'lakes_supp' })
+        .choropleth(mapUnit, { feature: 'rivers_large' })
+        .choropleth(mapUnit, { feature: 'rivers_small' })
         .tooltip()
         .render();
     });

@@ -3,9 +3,7 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .worldChoropleth({
-            topoJson: mapUnit
-        })
+        .worldChoropleth(mapUnit)
         .render();
     });
 });
