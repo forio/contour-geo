@@ -7,11 +7,10 @@
         _.extend(options.choropleth, {
             projection: d3.geo.albersUsa(),
             feature: 'states'
-        });
+        }, options.USChoropleth);
 
         return this.choropleth.renderer.call(this, data, layer, options);
     };
-
 
 
     Contour.export('USChoropleth', renderer);

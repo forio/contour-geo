@@ -3,21 +3,25 @@
 
     var defaults = {
         choropleth: {
-            // the data set in topoJson format
-            topoJson: undefined,
             // topoJson feature to render as a map (will acccess topoJson.objects[options.feature])
             feature: '',
-            // scale to be used by the projection, 
+            // scale to be used by the projection,
             // if left undefined, scale will be chart.plotWidth * scaleRatio
             scale: undefined,
             // a nice scale ratio
             scaleRatio: 1.3333,
             // valid options are at https://github.com/mbostock/d3/wiki/Geo-Projections
             projection: d3.geo.mercator(),
-            // array of [longitute, latitude] 
+            // array of [longitute, latitude]
             center: undefined,
-            // translates the pixel coordinates of center based on array of [x, y] 
-            translation: undefined
+            // d3.geo.projection.precision()
+            precision: 0.1,
+            // translates the pixel coordinates of center based on array of [x, y]
+            translation: undefined,
+            // a class name or function that returns a class name to be set onto each feature
+            cssClass: undefined,
+            // a color (hex) or function that returns a color to be set onto each feature
+            fill: undefined
         }
     };
 
@@ -25,18 +29,20 @@
     /**
     * Adds a choropleth map visualization to the Contour instance. Default configuration options are designed for a US map with an Albers USA projection.
     *
-    * Choropleth visualizations require a TopoJSON file with the topology to draw. Because of this, typically choropleth visualizations are created as part of a callback function passed to a `d3.json()` call that parses the TopoJSON file. 
-    * 
-    * When you [download Contour-Geo](get_contour.html), a few TopoJSON files are included. You can also [create your own](#topojosn).  
+    * Choropleth visualizations require a TopoJSON file with the topology to draw. Because of this, typically choropleth visualizations are created as part of a callback function passed to a `d3.json()` call that parses the TopoJSON file.
+    *
+    * When you [download Contour-Geo](get_contour.html), a few TopoJSON files are included. You can also [create your own](#topojosn).
     *
     * ### Example:
     *
     *       d3.json('us-states.json', function (us) {
-    *           new Contour({ el: '.map' })
-    *               .choropleth(
-    *                   { topoJson: us },
-    *                   { projection: d3.geo.albers() }
-    *               )
+    *           new Contour({
+    *                   el: '.map',
+    *                   choropleth: {
+    *                       projection: d3.geo.albers()
+    *                   }
+    *               })
+    *               .choropleth(us)
     *               .render();
     *       });
     *
@@ -48,15 +54,17 @@
     function choropleth(data, layer, options) {
         var width = options.chart.plotWidth;
         var height = options.chart.plotHeight;
-        var us = data.topoJson;
-        var fillFn = !data.fill ? _.noop : _.isFunction(data.fill) ? data.fill : function () { return data.fill; };
-        var classFn = !data.cssClass ? _.noop : _.isFunction(data.cssClass) ? data.cssClass : function () { return data.cssClass; };
+        var opt = options.choropleth || {};
+        var us = data;
+        var fillFn = !opt.fill ? _.noop : _.isFunction(opt.fill) ? opt.fill : function () { return opt.fill; };
+        var classFn = !opt.cssClass ? _.noop : _.isFunction(opt.cssClass) ? opt.cssClass : function () { return opt.cssClass; };
         var scaleRatio = options.choropleth.scaleRatio;
 
 
         var projection = options.choropleth.projection
             .scale(options.choropleth.scale || width * scaleRatio)
-            .translate(options.choropleth.translation || [width / 2, height / 2]);
+            .translate(options.choropleth.translation || [width / 2, height / 2])
+            .precision(options.choropleth.precision);
 
         if (projection.center) {
             projection.center(options.choropleth.center || [0,0]);

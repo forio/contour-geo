@@ -2,7 +2,7 @@
     'use strict';
 
     /**
-    * Adds callouts for several of the smaller states on the East Coast of the US. 
+    * Adds callouts for several of the smaller states on the East Coast of the US.
     *
     * This visualization requires `.choropleth()` and is suitable for use with the default `us.json` and `us-all.json` TopoJSON files included with Contour-Geo.
     *
@@ -10,13 +10,13 @@
     *
     *       d3.json('us-all.json', function (us) {
     *           new Contour({ el: '.map' })
-    *               .choropleth({ topoJson: us })
+    *               .choropleth(us)
     *               .smallStatesCallouts()
     *               .render()
     *       });
     *
     * @name smallStatesCallouts(data, options)
-    * @param {object} data The data (topology) to be rendered with this visualization. This must be in TopoJSON format. By default takes the data from the choropleth that is also part of this Contour instance. 
+    * @param {object} data The data (topology) to be rendered with this visualization. This must be in TopoJSON format. By default takes the data from the choropleth that is also part of this Contour instance.
     * @param {object} options (Optional) Configuration options particular to this visualization that override the defaults.
     */
 
@@ -49,6 +49,8 @@
             var node = d3.select(this);
             var origState = map.select('#' + d);
             var origClass = origState.attr('class');
+            var origFill = origState.attr('fill');
+            var origStroke = origState.attr('stroke');
             var centroid = path.centroid(origState.node().__data__);
             var line = node.append('line')
                 .attr('x1', centroid[0])
@@ -70,7 +72,9 @@
                 .attr('y', 0)
                 .attr('width', rectWidth)
                 .attr('height', rectHeight)
-                .attr('class', origClass);
+                .attr('class', origClass)
+                .attr('fill', origFill)
+                .attr('stroke', origStroke);
 
             textBox.append('text')
                 .text(d)
