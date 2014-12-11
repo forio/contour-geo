@@ -190,11 +190,11 @@ function generateConfigObjectDoc(files) {
             fs.writeFile(fullPath, cooked, 'utf8');
 
             // update the menu object
-            //namespace(menu, [k.ctx, k.key].join('.')).path = fileName;
+            namespace(menu, [k.ctx, k.key].join('.')).path = fileName;
         });
 
         // write out the menu object
-        //fs.writeFileSync(configDocFolder + 'menu.json', JSON.stringify(menu), 'utf8');
+        fs.writeFileSync(configDocFolder + 'menu.json', JSON.stringify(menu), 'utf8');
 
     });
 }
