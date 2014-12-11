@@ -1,4 +1,13 @@
+'use strict';
+
 var _ = require('lodash');
+
+// shim for d3.geo so it can be used in the properties
+var d3 = {
+    geo: {
+        mercator: function () {}
+    }
+};
 
 
 String.prototype.regexIndexOf = function(regex, start) {

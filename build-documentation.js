@@ -27,7 +27,7 @@ var options = {
 var allFiles = getSourceFileList(options.src);
 var filesToCopy = ['contour-geo.md', 'geo-included.md', 'topojson.md'];
 
-ensureDirectory([docFolder]);
+ensureDirectory([docFolder, configDocFolder]);
 
 generatePerFileDoc(allFiles);
 generateAllFilesDoc(allFiles);
