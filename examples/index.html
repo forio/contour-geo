@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Example Visualizations with Contour</title>
+    <link rel="stylesheet" href="../examples/css/bootstrap.min.css">
+    <script src="../examples/js/vendor/jquery.js"></script>
+    <script src="http://d3js.org/d3.v3.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+
+    <style>
+        *, *:before, *:after {
+          -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+         }
+
+         header {
+            height: 70px;
+         }
+
+         .menu li {
+            cursor: pointer;
+            color: #05f;
+            line-height: 1.5em;
+         }
+
+         .menu li:hover {
+            text-decoration: underline;
+
+         }
+
+         .toolbar {
+            line-height: 2em;
+            padding: 0 .5em;
+            background-color: #ddd;
+            position: relative;
+            border-bottom: solid 1px #aaa;
+            border-top: solid 1px #aaa;
+            margin-bottom: 12px;
+         }
+
+         .chart-id {
+            display: inline-block;
+            font-weight: bold;
+            font-family: 'open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+         }
+
+         .palette-selector {
+            float: right;
+            margin: .35em 0;
+         }
+
+         #sample {
+            width: 100%;
+
+         }
+
+    </style>
+</head>
+<body>
+
+
+<header></header>
+
+<div class="container">
+    <div class="row">
+        <aside class="col-md-3 menu"></aside>
+        <div class="col-md-8">
+            <div class="toolbar">
+                <div class="chart-id"></div>
+                <select name="palette-selector" id="palette-selector" class="palette-selector">
+                    <option value="1">Palette 1</option>
+                    <option value="2">Palette 2</option>
+                    <option value="3">Palette 3</option>
+                    <option value="4">Palette 4</option>
+                    <option value="5">Palette 5</option>
+                    <option value="6">Palette 6</option>
+                </select>
+            </div>
+                <iframe id="sample" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<script src="js/index.js"></script>
+</body>
+</html>
