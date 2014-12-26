@@ -30,7 +30,7 @@
     }
 
     function doRouting() {
-        var hash = document.location.hash.replace('#', '');
+        var hash = document.location.hash.replace('#/', '');
         if (hash.length) {
             loadSamples(hash, onSampleLoad);
         }
@@ -67,7 +67,7 @@
     }
 
     function loadSamples(path, onLoad) {
-        var fullPath = 'showcase' + path;
+        var fullPath = 'showcase/' + path;
         var frame = $('#sample');
 
         $('.chart-id').text(path);
@@ -94,8 +94,13 @@
             // add jquery and the demo css to the head first
             contents.push('<script src="../../../js/vendor/jquery.js"></script>');
             // force the correct versions of contour
+            res = res.replace(/(https?:\/\/forio\.com\/tools\/contour\/contour.geo.min.js)/g, function ($1, $2, $3) {
+                return '/dist/contour.geo.min.js';
+            });
+
             res = res.replace(/(https?:\/\/forio\.com\/tools\/contour\/)([\w\d\.\-\_]+)/g, function ($1, $2, $3) {
                 return $2 + contourVersion + '/' + $3;
+                // return '/dist/' + $3;
             });
 
             // now add the html
