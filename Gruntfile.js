@@ -59,15 +59,14 @@ module.exports = function (grunt) {
         },
         uglify: {
             options: {
-                sourceMap: function (fileName) {
-                    return fileName.replace(/\.js$/, '.map');
-                },
+                sourceMapIncludeSources: true,
+                sourceMap: true,
                 banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
                         '<%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             production: {
                 files: {
-                    'dist/contour.geo.min.js': ['dist/contour.geo.js']
+                    'dist/contour.geo.min.js': ['src/scripts/header.js', '<%= scripts.libs %>', '<%= scripts.geo %>', 'src/scripts/footer.js']
                 }
             }
         }
