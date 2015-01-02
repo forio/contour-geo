@@ -2,13 +2,13 @@ $(function () {
 
     var tooltipTemplate = _.template('<span class="waterName"><%= name %></span>');
 
-    d3.json('ca_with_lakes_and_rivers.json', function(mapUnit) {
+    d3.json('./ca_with_lakes_and_rivers.json', function(mapUnit) {
+
         new Contour({
             el: '.myMap',
             choropleth: {
-                center: [-122, 37],
-                scale: 1800,
-                translation: [300, 250]
+                center: [-120, 38],
+                scaleRatio: 2.6
             },
             tooltip: {
                 formatter: function (d, i, j) {

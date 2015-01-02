@@ -109,6 +109,7 @@
             // the default contour.css
             contents.push('<link rel="stylesheet" href="demo.css">');
             contents.push('<script src="demo.js"></script>');
+            contents.push('<style>body { margin: 0; }</style>');
 
             // now write everything the iframes document
             doc.open();

@@ -1,5 +1,10 @@
 .myMap {
-    width: 800px;
+    float: left;
+}
+
+.sidebar {
+    float: left;
+    width: 200px;
 }
 
 .background {
