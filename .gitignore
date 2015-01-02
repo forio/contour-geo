@@ -80,3 +80,6 @@ Cakefile
 
 bower_components/
 /documentation/
+dist/contour.min.css
+dist/contour.min.js
+dist/contour.min.js.map
