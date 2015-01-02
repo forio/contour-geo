@@ -95,6 +95,10 @@
             contents.push('<script src="../../../js/vendor/jquery.js"></script>');
 
             res = res.replace(/(https?:\/\/forio\.com\/tools\/contour\/)([\w\d\.\-\_]+)/g, function ($1, $2, $3) {
+                if (/local-ver/.test(window.location.href)) {
+                    return '/dist/' + $3;
+                }
+
                 return $2 + contourVersion + '/' + $3;
             });
 
