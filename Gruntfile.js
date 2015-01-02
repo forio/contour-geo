@@ -14,7 +14,7 @@ module.exports = function (grunt) {
         watch: {
             js: {
                 files: ['src/scripts/**/*.js'],
-                tasks: ['concat', 'uglify']
+                tasks: ['uglify:dev']
             }
         },
 
@@ -59,25 +59,65 @@ module.exports = function (grunt) {
         },
         uglify: {
             options: {
-                sourceMapIncludeSources: true,
-                sourceMap: true,
+                wrap: true,
                 banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
                         '<%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
-            production: {
-                files: {
-                    'dist/contour.geo.min.js': ['src/scripts/header.js', '<%= scripts.libs %>', '<%= scripts.geo %>', 'src/scripts/footer.js']
-                }
+            minify: {
+                options: {
+                    sourceMapIncludeSources: true,
+                    sourceMap: true,
+                    mangle: true,
+                    compress: true,
+                    preserveComments: 'none'
+                },
+                files: [{
+                    src: ['src/scripts/header.js', '<%= scripts.libs %>', '<%= scripts.geo %>', 'src/scripts/footer.js'],
+                    dest: 'dist/contour.geo.min.js'
+                }]
+            },
+
+            concatenate: {
+                options: {
+                    sourceMapIncludeSources: true,
+                    sourceMap: false,
+                    mangle: false,
+                    compress: false,
+                    preserveComments: 'all',
+                    beautify: true
+                },
+
+                files: [{
+                    src: ['src/scripts/header.js', '<%= scripts.libs %>', '<%= scripts.geo %>', 'src/scripts/footer.js'],
+                    dest: 'dist/contour.geo.js'
+                }]
+
+            },
+
+            dev: {
+                options: {
+                    sourceMapIncludeSources: true,
+                    sourceMap: true,
+                    mangle: false,
+                    compress: false,
+                    preserveComments: 'all',
+                    // beautify: true
+                },
+
+                files: [{
+                    src: ['src/scripts/header.js', '<%= scripts.libs %>', '<%= scripts.geo %>', 'src/scripts/footer.js'],
+                    dest: 'dist/contour.geo.min.js'
+                }]
             }
         }
     });
 
     // Default task.
-    grunt.registerTask('default', ['concat', 'uglify', 'watch']);
-    grunt.registerTask('production', ['concat', 'uglify', 'releaseNotes']);
+    grunt.registerTask('default', ['uglify:dev', 'uglify:concatenate', 'watch']);
+    grunt.registerTask('production', ['uglify:production', 'uglify:concatenate', 'releaseNotes']);
     grunt.registerTask('relase', function (type) {
         type = type ? type : 'patch';
-        ['bumpup:' + type, 'ver', 'concat', 'uglify', 'tagrelease'].forEach(function (task) {
+        ['bumpup:' + type, 'ver', 'uglify:production', 'uglify:concatenate', 'tagrelease'].forEach(function (task) {
             grunt.task.run(task);
         });
     });
