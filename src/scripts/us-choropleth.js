@@ -4,10 +4,10 @@
     var renderer = function (data, layer, options) {
         this.ensureDefaults(options, 'choropleth');
 
-        _.extend(options.choropleth, {
+        _.defaults(options.choropleth, options.USChoropleth, {
             projection: d3.geo.albersUsa(),
             feature: 'states'
-        }, options.USChoropleth);
+        });
 
         return this.choropleth.renderer.call(this, data, layer, options);
     };
