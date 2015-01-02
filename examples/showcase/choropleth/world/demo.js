@@ -3,7 +3,7 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .worldChoropleth(mapUnit)
+        .worldChoropleth(mapUnit, { feature: 'all' })
         .render();
     });
 });
