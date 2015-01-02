@@ -114,10 +114,10 @@ module.exports = function (grunt) {
 
     // Default task.
     grunt.registerTask('default', ['uglify:dev', 'uglify:concatenate', 'watch']);
-    grunt.registerTask('production', ['uglify:production', 'uglify:concatenate', 'releaseNotes']);
+    grunt.registerTask('production', ['uglify:minify', 'uglify:concatenate', 'releaseNotes']);
     grunt.registerTask('relase', function (type) {
         type = type ? type : 'patch';
-        ['bumpup:' + type, 'ver', 'uglify:production', 'uglify:concatenate', 'tagrelease'].forEach(function (task) {
+        ['bumpup:' + type, 'ver', 'uglify:minify', 'uglify:concatenate', 'tagrelease'].forEach(function (task) {
             grunt.task.run(task);
         });
     });
