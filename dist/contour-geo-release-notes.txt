@@ -1,2 +1,29 @@
-  * Merge pull request #11 from forio/choropleth-center
-  * fixes issue #6. reviewed with jaime.
+  * Fixed grunt production
+  * Rebuild maps for smaller file size and fix demo to use correct map
+  * Fixed world example
+  * Merge branch 'showcase-css-fix-for-ca-rivers'
+  * Ignore linked version of core contour in diet folder
+  * Allow to use ?local-ver to use /dist version in samples for example viewer
+  * Fixed grunt build to use uglify for concatenation and source map generation.
+  * Fixed grunt build to use uglify for concatenation and source map generation.
+  * Updated repository field in package.json
+  * Removed debugging code
+  * Upgrade grunt-uglify and fixed source maps
+  * Fixed sample viewer size
+  * Added sample viewer for showcase examples
+  * Fixed build to generate menu properties documentation
+  * Build documentation templates
+  * Fixed documentation build script
+  * Fixed showcase examples to reflect change in API
+  * Change choropleth to accept the topojson object and everything else in the options object
+  * Changed main object in world.json to be countries
+  * css help from jaime to make the rivers look like rivers
+  * Clean up code for showcase examples
+  * Renamed WorldChoropleth to worldChoropleth
+  * Updated demo
+  * Added us-choropleth and world-choropleth as different visualizations that use choropleth()
+  * Merge pull request #13 from forio/change-to-mercator
+  * Added attributions for Natural Earth and Color Brewer
+  * update showcase examples because of changed defaults
+  * update sample code because of changed defaults
+  * change defaults projection to mercator, feature to empty string

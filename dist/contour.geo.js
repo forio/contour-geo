@@ -1,4 +1,4 @@
-/*! Contour-Geo - v0.9.107 - 2015-01-02 */
+/*! Contour-Geo - v0.9.108 - 2015-01-02 */
 (function(exports, global) {
     global["true"] = exports;
     (function() {
@@ -152,7 +152,7 @@
         };
         Contour.export("USChoropleth", renderer);
     })();
-    Contour.geo.version = "0.9.107";
+    Contour.geo.version = "0.9.108";
     (function() {
         "use strict";
         var renderer = function(data, layer, options) {
