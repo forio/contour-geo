@@ -46,7 +46,8 @@ module.exports = function (grunt) {
             ],
             geo: [
                 'src/scripts/base.js',
-                'src/scripts/geo-base.js',
+                'src/scripts/geo.js',
+                'src/scripts/map.js',
                 'src/scripts/**/*.js'
             ]
 
