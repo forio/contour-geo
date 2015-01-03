@@ -3,8 +3,11 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .choropleth({topoJson: mapUnit},
-            { feature: 'countries', center: [-122, 37]})
+        .map(mapUnit, {
+            feature: 'countries',
+            center: [-122, 37],
+            translation: [300,400]
+        })
         .render();
-    })
+    });
 });

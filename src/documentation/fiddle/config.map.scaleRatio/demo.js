@@ -3,7 +3,7 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .choropleth({topoJson: mapUnit}, { feature: 'states', scaleRatio: 1.2 })
+        .map(mapUnit, { feature: 'states', scaleRatio: 1.2 })
         .render();
-    })
+    });
 });

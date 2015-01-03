@@ -3,7 +3,7 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .choropleth({topoJson: mapUnit}, { feature: 'counties', projection: d3.geo.albersUsa() })
+        .map(mapUnit, { feature: 'counties', projection: d3.geo.albersUsa() })
         .render();
-    })
+    });
 });

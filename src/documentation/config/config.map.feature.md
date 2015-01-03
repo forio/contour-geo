@@ -17,14 +17,14 @@ When you are [creating your own TopoJSON file](#topojson), this name defaults to
 		{
 			"type": "Topology",
 			"objects":
-				{"counties": 
+				{"counties":
 					{ 	"type": "GeometryCollection",
 						"geometries": [
 							//data for individual counties
 						]
 					}
 				},
-			"arcs": // data for all arcs 
+			"arcs": // data for all arcs
 		}
 
 * Using this data in a Contour-Geo visualization:
@@ -32,9 +32,9 @@ When you are [creating your own TopoJSON file](#topojson), this name defaults to
 		new Contour({
 			el: '.myMap'
 		})
-		.choropleth({ topoJson: mapUnit }, { 
+		.map({ topoJson: mapUnit }, {
 			feature: 'counties',
-			projection: d3.geo.albersUsa() 
+			projection: d3.geo.albersUsa()
 		})
 		.render();
 

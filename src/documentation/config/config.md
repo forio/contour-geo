@@ -1,6 +1,6 @@
 #### **config** : {<%= type %>}
 
-For each Contour-Geo visualization that you add to your Contour instance (e.g. `choropleth`, `smallStatesCallout`), you can optionally pass in a configuration object. This object is a set of configuration options specific to that visualization.
+For each Contour-Geo visualization that you add to your Contour instance (e.g. `map`, `smallStatesCallout`), you can optionally pass in a configuration object. This object is a set of configuration options specific to that visualization.
 
 Each set of options can be added:
 
@@ -8,8 +8,8 @@ Each set of options can be added:
 
 		new Contour({
 	      el: '.myMap',
-	      choropleth: {
-	      // choropleth-specific configuration options
+	      map: {
+	      // map-specific configuration options
 	      }
 	    })
 
@@ -17,9 +17,9 @@ Each set of options can be added:
 
 		new Contour({
 		  el: '.myMap',
-		  choropleth: { projection: d3.geo.albers() }
+		  map: { projection: d3.geo.albers() }
 		})
-		.choropleth({ topoJson: mapUnit }, { projection: d3.geo.mercator() } )
+		.map({ topoJson: mapUnit }, { projection: d3.geo.mercator() } )
 		.render();
 
 Each configuration option can be:
@@ -34,8 +34,8 @@ Each configuration option can be:
 
 * a function that returns a value of the correct type
 
-		scaleRatio: function() { 
-			if (condition) { return 1.62; } 
-			else { return bestRatio; } 
+		scaleRatio: function() {
+			if (condition) { return 1.62; }
+			else { return bestRatio; }
 		}
 

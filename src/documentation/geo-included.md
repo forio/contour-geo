@@ -2,7 +2,8 @@
 
 Two **map visualizations** are included with Contour-Geo:
 
-* `choropleth`: Adds a choropleth map visualization to the Contour instance. While the default configuration options are designed for a US map with an Albers USA projection, you can pass in any TopoJSON file and use the configuration options to style the resulting map appropriately.
+* `map`: Adds a map visualization to the Contour instance. While the default configuration options are designed for a US map with an Albers USA projection, you can pass in any TopoJSON file and use the configuration options to style the resulting map appropriately.
+* `choropleth': Adds a thematic choropleth map visualization to the Contour Instance. Choropleth visualization uses the map visualization to render and has the same parameters.
 * `smallStatesCallouts`: Adds callouts for several of the smaller states on the East Coast of the US.
 
 You can access more information about these from the left.

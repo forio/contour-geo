@@ -25,12 +25,12 @@ All of the [D3 Geo Projections](https://github.com/mbostock/d3/wiki/Geo-Projecti
 	new Contour({
 		el: '.myMap'
 	})
-	.choropleth({ topoJson: mapUnit }, { projection: d3.geo.azimuthalEqualArea() })
+	.map({ topoJson: mapUnit }, { projection: d3.geo.azimuthalEqualArea() })
 	.render();
 
 *[Try it.](<%= jsFiddleLink %>)*
 
 **Notes:**
 
-Typically when you change the `projection` from the default value, you also need to change the [`center`](#geo_config-geo_config/config.choropleth.center) and [`translation`](#geo_config-geo_config/config.choropleth.translation).
+Typically when you change the `projection` from the default value, you also need to change the [`center`](#geo_config-geo_config/config.map.center) and [`translation`](#geo_config-geo_config/config.map.translation).
 
