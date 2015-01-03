@@ -3,11 +3,11 @@
     var baseContourVersion =  '0.9.107';
     var contourVersion;
     var samples = [
-        'choropleth/california',
-        'choropleth/us-basic',
+        'map/california',
+        'map/us-basic',
+        'map/us-small-states',
+        'map/world',
         'choropleth/us-data',
-        'choropleth/us-small-states',
-        'choropleth/world',
     ];
 
     contourVersion = getContourVersion();

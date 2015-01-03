@@ -3,7 +3,8 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .USChoropleth(mapUnit)
+        .USMap(mapUnit)
+        .smallStatesCallouts()
         .render();
     });
 });

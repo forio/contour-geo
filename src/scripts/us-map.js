@@ -4,14 +4,14 @@
     var renderer = function (data, layer, options) {
         this.ensureDefaults(options, 'choropleth');
 
-        _.defaults(options.choropleth, options.USChoropleth, {
+        options.choropleth = options.choropleth || {};
+        _.merge(options.choropleth, {
             projection: d3.geo.albersUsa(),
             feature: 'states'
-        });
+        }, options.USMap);
 
         return this.choropleth.renderer.call(this, data, layer, options);
     };
 
-
-    Contour.export('USChoropleth', renderer);
+    Contour.export('USMap', renderer);
 })();

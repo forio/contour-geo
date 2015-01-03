@@ -10,8 +10,9 @@
         // use miller projection if its available.
         // needs to include <script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
         // https://github.com/d3/d3-geo-projection
-        _.extend(options.choropleth, {
-            feature: 'countries',
+        options.choropleth = options.choropleth || {};
+        _.merge(options.choropleth, {
+            feature: 'all',
             projection: (d3.geo.miller || d3.geo.equirectangular)(),
             scale: (w + 1) / 2 / Math.PI,
             precision: 0.1,
@@ -22,5 +23,5 @@
     };
 
 
-    Contour.export('worldChoropleth', renderer);
+    Contour.export('worldMap', renderer);
 })();

@@ -21,7 +21,7 @@ $(function () {
                 }
             }
         })
-        .USChoropleth(us, {
+        .USMap(us, {
             cssClass: function (d) {
                 return colorScale(populationDensity[d.id]);
             }
