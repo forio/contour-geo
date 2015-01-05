@@ -1,0 +1,6 @@
+---
+ name: config.map.precision
+ authors:
+   - Forio
+ normalize_css: no
+ ...
