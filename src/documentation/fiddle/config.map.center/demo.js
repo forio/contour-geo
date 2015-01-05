@@ -3,8 +3,10 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .map(mapUnit,
-            { feature: 'countries', center: [-122, 37]})
+        .map(mapUnit, { 
+        	feature: 'countries', 
+        	center: [-122, 37]
+        })
         .render();
     });
 });
