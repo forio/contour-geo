@@ -2,7 +2,7 @@
     'use strict';
 
     var renderer = function (data, layer, options) {
-        this.ensureDefaults(options, 'choropleth');
+        this.ensureDefaults(options, 'map');
 
         var w = options.chart.plotWidth;
         var h = options.chart.plotHeight;
@@ -22,6 +22,21 @@
         return this.choropleth.renderer.call(this, data, layer, options);
     };
 
+    /**
+    * Adds a map visualization to the Contour instance, using the `miller` projection if available (include "http://d3js.org/d3.geo.projection.v0.min.js"), or the `equirectangular` projection otherwise, and a TopoJSON file with data on world countries such as the `world.json` TopoJSON file included with Contour-Geo. This visualization is a shorthand for configuring a `.map()` visualization for the world.
+    *
+    * ### Example:
+    *
+    *       d3.json('world.json', function (world) {
+    *           new Contour({ el: '.map' })
+    *               .worldMap(world)
+    *               .render()
+    *       });
+    *
+    * @name worldMap(data, options)
+    * @param {object} data The data (topology) to be rendered with this visualization. This must be in TopoJSON format.
+    * @param {object} options (Optional) Configuration options particular to this visualization that override the defaults.
+    */
 
     Contour.export('worldMap', renderer);
 })();
