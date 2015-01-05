@@ -16,6 +16,7 @@ Alternatively, pass the options as the second argument to the `map` visualizatio
 	})
 	.map(mapUnit, {
 		// additional map-specific configuration options
+		feature: 'countries'
 	})
 	.render();
 
