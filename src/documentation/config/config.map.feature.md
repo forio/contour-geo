@@ -32,7 +32,7 @@ When you are [creating your own TopoJSON file](#topojson), this name defaults to
 		new Contour({
 			el: '.myMap'
 		})
-		.map({ topoJson: mapUnit }, {
+		.map(mapUnit, {
 			feature: 'counties',
 			projection: d3.geo.albersUsa()
 		})

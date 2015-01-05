@@ -16,14 +16,15 @@ Must remain undefined if using the [`d3.geo.albersUsa()` projection](#geo_config
 	new Contour({
 		el: '.myMap'
 	})
-	.map({ topoJson: mapUnit },
-		{ feature: 'countries', center: [-122, 37] })
+	.map(mapUnit, { 
+		feature: 'countries', 
+		center: [-122, 37] 
+	})
 	.render();
 
 *[Try it.](<%= jsFiddleLink %>)*
 
 **Notes:**
 
-The map projection defaults to [`d3.geo.albersUsa`](https://github.com/mbostock/d3/wiki/Geo-Projections).
-
+The map projection defaults to [`d3.geo.mercator`](https://github.com/mbostock/d3/wiki/Geo-Projections).
 
