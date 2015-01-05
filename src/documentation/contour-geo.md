@@ -3,7 +3,7 @@
 
 You can add one or more map visualizations to any instance of Contour.
 
-Adding a map visualization, or choropleth, requires:
+Adding a map visualization requires:
 
  * Having a TopoJSON file containing the geometry for your map. You can [make your own TopoJSON file](#topojson) or use one of the [geometries included with Contour-Geo](#geo-included).
  * Including `contour-geo.js` in your page. For example, `<script src="yourPath/contour.geo.min.js"></script>`. See the [Get Contour](get_contour.html) page to download this library.
@@ -27,21 +27,19 @@ Because of this, typically map visualizations are created as part of a callback 
     });
 
 
-###Customizing visualizations
+###Customizing maps
 
 You can [make your own TopoJSON file](#topojson) or use one of the [geometries included with Contour-Geo](#geo-included).
 
-In either case, there are several ways you can customize your Contour-Geo visualizations. While these techniques are available for all Contour visualizations, they are particularly useful for maps because you can vary these customizations based on the data in the TopoJSON file from which the map is drawn.
+In either case, there are several ways you can customize your Contour-Geo visualizations: 
 
-Some examples for customizing visualizations:
+Some examples for customizing maps:
 
-* Include a `cssClass` in the data you pass to the `map` to create a Choropleth.
+* Change the default `options` passed in to the visualization. 
 
-	The `cssClass` can be a class name or a function that returns a class name. In either case, that class is applied to the map when it is drawn in the browser.
+	For instance, change the focus of your map by including a specific value for the [`projection`](#config.map.projection), [`center`](#config.map.center), or [`scale`](#config.map.scale). 
 
-	If the `cssClass` is a function, the function takes in the `geometries` data from the TopoJSON file, so has access to any data the TopoJSON file includes. For example, this allows you to color based on each separate geometry in your map.
-
-	See an [example using the `cssClass` with a `map`](gallery.html#/geo).
+	For additional customization, pass in a [`cssClass`](#config.map.cssClass) whose value is a function; the function takes in the `geometries` data from the TopoJSON file, so has access to any data the TopoJSON file includes: this allows you to color based on each separate geometry in your map.
 
 * Add a `tooltip`, with a `tooltip.formatter`, and reference the data you pass to the `map`.
 

@@ -1,5 +1,5 @@
 ---
- name: config.choropleth.center
+ name: config.map.center
  authors:
    - Forio
  normalize_css: no

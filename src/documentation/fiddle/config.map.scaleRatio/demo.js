@@ -3,7 +3,10 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .map(mapUnit, { feature: 'states', scaleRatio: 1.2 })
+        .map(mapUnit, {
+        	feature: 'states', 
+        	scaleRatio: 1.2
+        })
         .render();
     });
 });

@@ -1,6 +1,6 @@
 ---
- name: California Choropleth, with Lakes and Rivers
- description: As with other visualizations, you can add multiple choropleths to a single Contour instance. In this example, the TopoJSON file contains two different sets of geometries, called features. Each feature is being used in one choropleth, and the two choropleths are part of the same Contour instance, so the maps appear layered. In this example, we combine river and lake information, from [Natural Earth](http://www.naturalearthdata.com/), with a map of California. [Read more](#topojson) about how to create your own TopoJSON files.
+ name: California Map, with Lakes and Rivers
+ description: As with other visualizations, you can add multiple choropleths to a single Contour instance. In this example, the TopoJSON file contains two different sets of geometries, called features. Each feature is being used in one map, and the two maps are part of the same Contour instance, so the maps appear layered. In this example, we combine river and lake information, from [Natural Earth](http://www.naturalearthdata.com/), with a map of California. [Read more](#topojson) about how to create your own TopoJSON files.
  authors:
    - Forio
  normalize_css: no

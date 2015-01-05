@@ -11,7 +11,7 @@ If [`scale`](#geo_config/config.map.scale) is defined, this property is ignored.
 	new Contour({
 		el: '.myMap'
 	})
-	.map({ topoJson: mapUnit }, {
+	.map(mapUnit, {
 		feature: 'states',
 		scaleRatio: 1.2
 	})
@@ -22,4 +22,3 @@ If [`scale`](#geo_config/config.map.scale) is defined, this property is ignored.
 **Notes:**
 
 The map projection defaults to [`d3.geo.mercator`](https://github.com/mbostock/d3/wiki/Geo-Projections).
-

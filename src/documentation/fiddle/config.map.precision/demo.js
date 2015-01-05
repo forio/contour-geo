@@ -3,10 +3,8 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .map(mapUnit, {
-        	feature: 'states', 
-        	scale: 800 
+        .map(mapUnit, { 
+        	precision: 10
         })
         .render();
-    });
 });

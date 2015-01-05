@@ -1,5 +1,5 @@
 ---
- name: config.map.translation
+ name: config.map.cssClass
  authors:
    - Forio
  normalize_css: no

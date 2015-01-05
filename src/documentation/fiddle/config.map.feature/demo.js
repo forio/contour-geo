@@ -3,7 +3,10 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .map(mapUnit, { feature: 'counties', projection: d3.geo.albersUsa() })
+        .map(mapUnit, { 
+        	feature: 'counties', 
+        	projection: d3.geo.albersUsa()
+        })
         .render();
     });
 });

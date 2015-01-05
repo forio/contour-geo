@@ -11,7 +11,7 @@ If left undefined, the `scale` is set to [`chart.plotWidth`](#core_config/config
 	new Contour({
 		el: '.myMap'
 	})
-	.map({ topoJson: mapUnit }, {
+	.map(mapUnit, {
 		feature: 'states',
 		scale: 800
 	})
@@ -21,6 +21,6 @@ If left undefined, the `scale` is set to [`chart.plotWidth`](#core_config/config
 
 **Notes:**
 
-The map projection defaults to [`d3.geo.albersUsa`](https://github.com/mbostock/d3/wiki/Geo-Projections).
+The map projection defaults to [`d3.geo.mercator`](https://github.com/mbostock/d3/wiki/Geo-Projections).
 
 
