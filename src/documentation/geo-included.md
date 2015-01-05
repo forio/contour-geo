@@ -1,9 +1,10 @@
 ###Built-in visualizations and included geometries
 
-Two **map visualizations** are included with Contour-Geo:
+Several **map visualizations** are included with Contour-Geo:
 
-* `map`: Adds a map visualization to the Contour instance. While the default configuration options are designed for a US map with an Albers USA projection, you can pass in any TopoJSON file and use the configuration options to style the resulting map appropriately.
-* `choropleth': Adds a thematic choropleth map visualization to the Contour Instance. Choropleth visualization uses the map visualization to render and has the same parameters.
+* `map`: Adds a map visualization to the Contour instance. Map visualizations require a TopoJSON file with the topology to draw, and you can customize using the `options` available.
+* `worldMap`: Adds a map visualization to the Contour instance, using the `world.json` TopoJSON file included with Contour-Geo. Uses the Miller or Equirectangular projection by default.
+* `USMap`: Adds a map visualization to the Contour instance, using the `us-all.json` TopoJSON file included with Contour-Geo. Uses the Albers USA projection by default.
 * `smallStatesCallouts`: Adds callouts for several of the smaller states on the East Coast of the US.
 
 You can access more information about these from the left.
