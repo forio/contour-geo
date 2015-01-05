@@ -1,5 +1,5 @@
 ---
- name: config.choropleth.scale
+ name: config.map.scale
  authors:
    - Forio
  normalize_css: no

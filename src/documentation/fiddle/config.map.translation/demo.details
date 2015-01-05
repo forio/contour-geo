@@ -1,5 +1,5 @@
 ---
- name: config.choropleth.translation
+ name: config.map.translation
  authors:
    - Forio
  normalize_css: no
