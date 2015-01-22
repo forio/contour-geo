@@ -1,4 +1,4 @@
-/*! Contour-Geo - v0.9.109 - 2015-01-02 */
+/*! Contour-Geo - v0.9.110 - 2015-01-22 */
 (function(exports, global) {
     global["true"] = exports;
     (function() {
@@ -30,9 +30,9 @@
             }
         };
         /**
-    * Adds a map visualization to the Contour instance. Default configuration options are designed for a US map with an Albers USA projection.
+    * Adds a map visualization to the Contour instance.
     *
-    * map visualizations require a TopoJSON file with the topology to draw. Because of this, typically map visualizations are created as part of a callback function passed to a `d3.json()` call that parses the TopoJSON file.
+    * Map visualizations require a TopoJSON file with the topology to draw. Because of this, typically map visualizations are created as part of a callback function passed to a `d3.json()` call that parses the TopoJSON file. 
     *
     * When you [download Contour-Geo](get_contour.html), a few TopoJSON files are included. You can also [create your own](#topojosn).
     *
@@ -42,7 +42,7 @@
     *           new Contour({
     *                   el: '.map',
     *                   map: {
-    *                       projection: d3.geo.albers()
+    *                       projection: d3.geo.albersUsa()
     *                   }
     *               })
     *               .map(us)
@@ -86,34 +86,7 @@
     })();
     (function() {
         "use strict";
-        var defaults = {
-            choropleth: {}
-        };
-        /**
-    * Adds a choropleth map visualization to the Contour instance. A [Choropleth map](http://en.wikipedia.org/wiki/Choropleth_map) is the most comon type of thematic maps for visualizing statistical data.
-    *
-    * Choropleth visualizations require a TopoJSON file with the topology to draw. Because of this, typically choropleth visualizations are created as part of a callback function passed to a `d3.json()` call that parses the TopoJSON file.
-    *
-    * When you [download Contour-Geo](get_contour.html), a few TopoJSON files are included. You can also [create your own](#topojosn).
-    *
-    * ### Example:
-    *
-    *       d3.json('us-states.json', function (us) {
-    *           new Contour({
-    *                   el: '.map',
-    *                   choropleth: {
-    *                       projection: d3.geo.albers()
-    *                   }
-    *               })
-    *               .choropleth(us)
-    *               .render();
-    *       });
-    *
-    *
-    * @name choropleth(data, options)
-    * @param {object} data The data (topology) to be rendered with this visualization. This must be in TopoJSON format.
-    * @param {object} options (Optional) Configuration options particular to this visualization that override the defaults.
-    */
+        var defaults = {};
         var choropleth = function(data, layer, options) {
             this.ensureDefaults(options, "map");
             options.map = options.map || {};
@@ -121,6 +94,7 @@
             return this.map.renderer.call(this, data, layer, options);
         };
         choropleth.defaults = defaults;
+        // don't add to output documentation until this is different from map.js
         Contour.export("choropleth", choropleth);
     })();
     (function() {
@@ -128,13 +102,13 @@
         /**
     * Adds callouts for several of the smaller states on the East Coast of the US.
     *
-    * This visualization requires `.map()` and is suitable for use with the default `us.json` and `us-all.json` TopoJSON files included with Contour-Geo.
+    * This visualization requires `.map()` and a `projection` of `albers` or `albersUsa`. It is suitable for use with the default `us.json` and `us-all.json` TopoJSON files included with Contour-Geo. 
     *
     * ### Example:
     *
     *       d3.json('us-all.json', function (us) {
     *           new Contour({ el: '.map' })
-    *               .map(us)
+    *               .map(us, { projection: d3.geo.albersUsa() })
     *               .smallStatesCallouts()
     *               .render()
     *       });
@@ -182,7 +156,7 @@
     (function() {
         "use strict";
         var renderer = function(data, layer, options) {
-            this.ensureDefaults(options, "choropleth");
+            this.ensureDefaults(options, "map");
             options.choropleth = options.choropleth || {};
             _.merge(options.choropleth, {
                 projection: d3.geo.albersUsa(),
@@ -190,13 +164,28 @@
             }, options.USMap);
             return this.choropleth.renderer.call(this, data, layer, options);
         };
+        /**
+    * Adds a map visualization to the Contour instance, using the `albersUsa` projection and a TopoJSON file with data on US states, such as the `us.json` and `us-all.json` TopoJSON files included with Contour-Geo. This visualization is a shorthand for configuring a `.map()` visualization that is focused on the US.
+    *
+    * ### Example:
+    *
+    *       d3.json('us-all.json', function (us) {
+    *           new Contour({ el: '.map' })
+    *               .USMap(us)
+    *               .render()
+    *       });
+    *
+    * @name USMap(data, options)
+    * @param {object} data The data (topology) to be rendered with this visualization. This must be in TopoJSON format.
+    * @param {object} options (Optional) Configuration options particular to this visualization that override the defaults.
+    */
         Contour.export("USMap", renderer);
     })();
-    Contour.geo.version = "0.9.109";
+    Contour.geo.version = "0.9.110";
     (function() {
         "use strict";
         var renderer = function(data, layer, options) {
-            this.ensureDefaults(options, "choropleth");
+            this.ensureDefaults(options, "map");
             var w = options.chart.plotWidth;
             var h = options.chart.plotHeight;
             // use miller projection if its available.
@@ -212,6 +201,21 @@
             }, options.worldChoropleth);
             return this.choropleth.renderer.call(this, data, layer, options);
         };
+        /**
+    * Adds a map visualization to the Contour instance, using the `miller` projection if available (include "http://d3js.org/d3.geo.projection.v0.min.js"), or the `equirectangular` projection otherwise, and a TopoJSON file with data on world countries such as the `world.json` TopoJSON file included with Contour-Geo. This visualization is a shorthand for configuring a `.map()` visualization for the world.
+    *
+    * ### Example:
+    *
+    *       d3.json('world.json', function (world) {
+    *           new Contour({ el: '.map' })
+    *               .worldMap(world)
+    *               .render()
+    *       });
+    *
+    * @name worldMap(data, options)
+    * @param {object} data The data (topology) to be rendered with this visualization. This must be in TopoJSON format.
+    * @param {object} options (Optional) Configuration options particular to this visualization that override the defaults.
+    */
         Contour.export("worldMap", renderer);
     })();
 })({}, function() {
