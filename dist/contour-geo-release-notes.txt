@@ -1,16 +1,1 @@
-  * Merge pull request #15 from forio/docs-0.9.10x
-  * world-map: ensureDefaults from map; add docs
-  * us-map: ensureDefaults from map; add docs
-  * small-states: update projection requirements info
-  * map.js: update prose on defaults since they've changed
-  * choropleth.js: don't include in docs until there is functionality
-  * geo-included updates: new names for visualizations
-  * options.feature still needed for regular map
-  * intro updates: map --> choropleth; cssClass as option
-  * choropleth --> map in fiddle details files
-  * more formatting fixing
-  * precision docs + fiddle
-  * fill docs + fiddle
-  * cssClass docs + fiddle
-  * sample code formatting fixes
-  * showcase details: remove choropleth language (in favor of "map")
+  * added bower json to register with bower
