@@ -1,5 +1,5 @@
 
-##Advanced Visualizations: Maps
+##Advanced Visualizations: Geo
 
 You can add one or more map visualizations to any instance of Contour.
 
