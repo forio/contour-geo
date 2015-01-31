@@ -20,8 +20,6 @@ For instance, if your Contour instance is rendered in a `<div>` that is 600x800,
 
 *[Try it.](<%= jsFiddleLink %>)*
 
-**Notes:**
 
-The map projection defaults to [`d3.geo.mercator`](https://github.com/mbostock/d3/wiki/Geo-Projections).
 
 

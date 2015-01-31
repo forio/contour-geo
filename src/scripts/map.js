@@ -31,7 +31,7 @@
     *
     * Map visualizations require a TopoJSON file with the topology to draw. Because of this, typically map visualizations are created as part of a callback function passed to a `d3.json()` call that parses the TopoJSON file. 
     *
-    * When you [download Contour-Geo](get_contour.html), a few TopoJSON files are included. You can also [create your own](#topojosn).
+    * When you [download Contour-Geo](get_contour.html), a few TopoJSON files are included. You can also [create your own](#topojson).
     *
     * ### Example:
     *

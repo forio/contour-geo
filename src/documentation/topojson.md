@@ -2,7 +2,7 @@
 
 Contour-Geo map visualizations require a TopoJSON file with the topology to draw.
 
-TopoJSON is an extension of GeoJSON that encodes topology and is substantially more compact. The full spec, including command line reference for creating TopoJSON files, is available [here](https://github.com/mbostock/topojson/wiki).
+TopoJSON is an extension of GeoJSON that encodes topology and is substantially more compact. The full spec, including command line reference for creating TopoJSON files, is available [here](http://github.com/mbostock/topojson/wiki).
 
 When you [download Contour-Geo](get_contour.html), a few TopoJSON files are included. See the details [here](#geo-included).
 
@@ -58,4 +58,4 @@ You can also create your own TopoJSON file using a combination of the `topojson`
 
 	Here we are creating a `parks.json` file that is a combination of our GeoJSON file `geoparks.json` and the existing TopoJSON file `us-all.json` included with Contour-Geo. When we create a Contour visualization with `parks.json`, we'll see both the US states and the US national parks.
 
-**Note:** The [topojson command line reference](https://github.com/mbostock/topojson/wiki/Command-Line-Reference) contains additional detail on step 4. This [excellent blog post from TopoJSON creator MBostock](http://bost.ocks.org/mike/map/) provides more detail on all of the above steps (and then walks through how to create a d3 visualization from your TopoJSON file).
+**Note:** The [topojson command line reference](http://github.com/mbostock/topojson/wiki/Command-Line-Reference) contains additional detail on step 4. This [excellent blog post from TopoJSON creator MBostock](http://bost.ocks.org/mike/map/) provides more detail on all of the above steps (and then walks through how to create a d3 visualization from your TopoJSON file).

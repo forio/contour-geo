@@ -9,7 +9,7 @@ Longitude and latitude are specified in degrees.
 * Longitude is positive for East, negative for West.
 * Latitude is positive for North, negative for South.
 
-Must remain undefined if using the [`d3.geo.albersUsa()` projection](#geo_config/config.map.projection), which is already centered.
+Must remain undefined if using the `d3.geo.albersUsa()` [projection](#geo_config/config.map.projection), which is already centered.
 
 **Example:**
 
@@ -24,7 +24,4 @@ Must remain undefined if using the [`d3.geo.albersUsa()` projection](#geo_config
 
 *[Try it.](<%= jsFiddleLink %>)*
 
-**Notes:**
-
-The map projection defaults to [`d3.geo.mercator`](https://github.com/mbostock/d3/wiki/Geo-Projections).
 

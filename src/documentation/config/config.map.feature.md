@@ -16,14 +16,14 @@ When you are [creating your own TopoJSON file](#topojson), this name defaults to
 
 		{
 			"type": "Topology",
-			"objects":
-				{"counties":
-					{ 	"type": "GeometryCollection",
-						"geometries": [
-							//data for individual counties
-						]
-					}
-				},
+			"objects": {
+				"counties": { 
+					"type": "GeometryCollection",
+					"geometries": [
+						//data for individual counties
+					]
+				}
+			},
 			"arcs": // data for all arcs
 		}
 
@@ -42,4 +42,4 @@ When you are [creating your own TopoJSON file](#topojson), this name defaults to
 
 **Notes:**
 
-See the walkthrough on [creating your own TopoJSON file](#topojson), or read the [full TopoJSON spec](https://github.com/mbostock/topojson/wiki/Command-Line-Reference).
+See the walkthrough on [creating your own TopoJSON file](#topojson), or read the [full TopoJSON spec](http://github.com/mbostock/topojson/wiki/Command-Line-Reference).

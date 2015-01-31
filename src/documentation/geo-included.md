@@ -2,10 +2,10 @@
 
 Several **map visualizations** are included with Contour-Geo:
 
-* `map`: Adds a map visualization to the Contour instance. Map visualizations require a TopoJSON file with the topology to draw, and you can customize using the `options` available.
-* `worldMap`: Adds a map visualization to the Contour instance, using the `world.json` TopoJSON file included with Contour-Geo. Uses the Miller or Equirectangular projection by default.
-* `USMap`: Adds a map visualization to the Contour instance, using the `us-all.json` TopoJSON file included with Contour-Geo. Uses the Albers USA projection by default.
-* `smallStatesCallouts`: Adds callouts for several of the smaller states on the East Coast of the US.
+* [`map`](#map): Adds a map visualization to the Contour instance. Map visualizations require a TopoJSON file with the topology to draw, and you can customize using the `options` available.
+* [`worldMap`](#world-map): Adds a map visualization to the Contour instance, using the `world.json` TopoJSON file included with Contour-Geo. Uses the Miller or Equirectangular projection by default.
+* [`USMap`](#us-map): Adds a map visualization to the Contour instance, using the `us-all.json` TopoJSON file included with Contour-Geo. Uses the Albers USA projection by default.
+* [`smallStatesCallouts`](#smallStatesCallout): Adds callouts for several of the smaller states on the East Coast of the US.
 
 You can access more information about these from the left.
 

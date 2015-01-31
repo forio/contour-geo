@@ -23,7 +23,9 @@
     };
 
     /**
-    * Adds a map visualization to the Contour instance, using the `miller` projection if available (include "http://d3js.org/d3.geo.projection.v0.min.js"), or the `equirectangular` projection otherwise, and a TopoJSON file with data on world countries such as the `world.json` TopoJSON file included with Contour-Geo. This visualization is a shorthand for configuring a `.map()` visualization for the world.
+    * Adds a map visualization to the Contour instance, using the `miller` projection if available (include `<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>`), or the `equirectangular` projection otherwise, and a TopoJSON file with data on world countries such as the `world.json` TopoJSON file included with Contour-Geo. 
+    *
+    * This visualization is a shorthand for configuring a [`.map()`](#map) visualization for the world.
     *
     * ### Example:
     *

@@ -34,5 +34,5 @@ If the `cssClass` is a function, the function takes in the `geometries` data fro
 
 **Notes:**
 
-Use `cssClass` to apply a CSS class to the map. Use [`fill`](#config.map.fill) to apply a particular fill color.
+Use `cssClass` to apply a CSS class to the map. Use [`fill`](#geo_config/config.map.fill) to apply a particular fill color.
 

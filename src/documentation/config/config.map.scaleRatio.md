@@ -21,4 +21,4 @@ If [`scale`](#geo_config/config.map.scale) is defined, this property is ignored.
 
 **Notes:**
 
-The map projection defaults to [`d3.geo.mercator`](https://github.com/mbostock/d3/wiki/Geo-Projections).
+The map projection defaults to [`d3.geo.mercator`](http://github.com/mbostock/d3/wiki/Geo-Projections).
