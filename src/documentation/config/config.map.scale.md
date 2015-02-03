@@ -11,6 +11,7 @@ If left undefined, the `scale` is set to [`chart.plotWidth`](#core_config/config
 	new Contour({
 		el: '.myMap'
 	})
+    .geo()
 	.map(mapUnit, {
 		feature: 'states',
 		scale: 800

@@ -14,6 +14,7 @@ Alternatively, pass the options as the second argument to the `map` visualizatio
 			// map-specific configuration options
 		}
 	})
+	.geo()
 	.map(mapUnit, {
 		// additional map-specific configuration options
 		feature: 'countries'

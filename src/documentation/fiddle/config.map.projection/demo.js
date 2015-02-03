@@ -3,10 +3,11 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .map(mapUnit, { 
-        	projection: d3.geo.azimuthalEqualArea(), 
-        	feature: 'countries', 
-        	scale: 300 
+        .geo()
+        .map(mapUnit, {
+        	projection: d3.geo.azimuthalEqualArea(),
+        	feature: 'countries',
+        	scale: 300
         })
         .render();
 });

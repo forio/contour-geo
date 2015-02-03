@@ -20,6 +20,7 @@ $(function () {
                 }
             }
         })
+        .geo()
         .map(mapUnit, { feature: 'ca' })
         .map(mapUnit, { feature: 'lakes_ca' })
         .map(mapUnit, { feature: 'lakes_supp' })

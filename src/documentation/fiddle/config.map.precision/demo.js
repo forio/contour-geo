@@ -3,8 +3,10 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .map(mapUnit, { 
+        .geo()
+        .map(mapUnit, {
         	precision: 10
         })
         .render();
+    });
 });

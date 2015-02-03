@@ -23,6 +23,7 @@ If the `cssClass` is a function, the function takes in the `geometries` data fro
     new Contour({
         el: '.myMap'
     })
+    .geo()
     .map(mapUnit, {
     	cssClass: function(gemo) {
     		return "q" + gemo.id + "-9";

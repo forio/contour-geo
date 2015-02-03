@@ -11,6 +11,7 @@ If [`scale`](#geo_config/config.map.scale) is defined, this property is ignored.
 	new Contour({
 		el: '.myMap'
 	})
+    .geo()
 	.map(mapUnit, {
 		feature: 'states',
 		scaleRatio: 1.2

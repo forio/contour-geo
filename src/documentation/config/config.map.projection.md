@@ -4,15 +4,16 @@
 
 The projection to use for your Contour-Geo visualization.
 
-All of the [D3 Geo Projections](http://github.com/mbostock/d3/wiki/Geo-Projections) are available. 
+All of the [D3 Geo Projections](http://github.com/mbostock/d3/wiki/Geo-Projections) are available.
 
 **Example:**
 
 	new Contour({
 		el: '.myMap'
 	})
-	.map(mapUnit, { 
-		projection: d3.geo.azimuthalEqualArea() 
+    .geo()
+	.map(mapUnit, {
+		projection: d3.geo.azimuthalEqualArea()
 	})
 	.render();
 

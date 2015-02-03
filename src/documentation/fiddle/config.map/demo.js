@@ -6,6 +6,7 @@ $(function () {
                 // map-specific configuration options
             }
         })
+        .geo()
         .map(mapUnit, {
             // additional map-specific configuration options
             feature: 'countries'

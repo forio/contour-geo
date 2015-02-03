@@ -3,10 +3,12 @@ $(function () {
         new Contour({
 	        el: '.myMap'
 	    })
+	    .geo()
 	    .map(mapUnit, {
 	    	cssClass: function(geom) {
 	    		return "q" + geom.id + "-9";
 	    	}
 	    })
 	    .render();
+	});
 });

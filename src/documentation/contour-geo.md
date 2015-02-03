@@ -19,6 +19,7 @@ Because of this, typically map visualizations are created as part of a callback 
 
     d3.json('parks.json', function (us) {
     	new Contour({ el: '.map' })
+            .geo()
     		.map(
     			us,
     			{ projection: d3.geo.albers() }
@@ -31,13 +32,13 @@ Because of this, typically map visualizations are created as part of a callback 
 
 You can [make your own TopoJSON file](#topojson) or use one of the [geometries included with Contour-Geo](#geo-included).
 
-In either case, there are several ways you can customize your Contour-Geo visualizations: 
+In either case, there are several ways you can customize your Contour-Geo visualizations:
 
 Some examples for customizing maps:
 
-* Change the default `options` passed in to the visualization. 
+* Change the default `options` passed in to the visualization.
 
-	For instance, change the focus of your map by including a specific value for the [`projection`](#geo_config/config.map.projection), [`center`](#geo_config/config.map.center), or [`scale`](#geo_config/config.map.scale). 
+	For instance, change the focus of your map by including a specific value for the [`projection`](#geo_config/config.map.projection), [`center`](#geo_config/config.map.center), or [`scale`](#geo_config/config.map.scale).
 
 	For additional customization, pass in a [`cssClass`](#geo_config/config.map.cssClass) whose value is a function; the function takes in the `geometries` data from the TopoJSON file, so has access to any data the TopoJSON file includes. This allows you to color based on each separate geometry in your map.
 

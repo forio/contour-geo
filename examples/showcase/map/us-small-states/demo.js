@@ -3,6 +3,7 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
+        .geo()
         .USMap(mapUnit)
         .smallStatesCallouts()
         .render();

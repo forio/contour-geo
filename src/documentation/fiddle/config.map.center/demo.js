@@ -3,8 +3,9 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .map(mapUnit, { 
-        	feature: 'countries', 
+        .geo()
+        .map(mapUnit, {
+        	feature: 'countries',
         	center: [-122, 37]
         })
         .render();

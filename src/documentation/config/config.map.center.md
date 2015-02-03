@@ -13,14 +13,15 @@ Must remain undefined if using the `d3.geo.albersUsa()` [projection](#geo_config
 
 **Example:**
 
-	new Contour({
-		el: '.myMap'
-	})
-	.map(mapUnit, { 
-		feature: 'countries', 
-		center: [-122, 37] 
-	})
-	.render();
+    new Contour({
+        el: '.myMap'
+    })
+    .geo()
+    .map(mapUnit, {
+        feature: 'countries',
+        center: [-122, 37]
+    })
+    .render();
 
 *[Try it.](<%= jsFiddleLink %>)*
 

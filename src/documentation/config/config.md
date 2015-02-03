@@ -19,6 +19,7 @@ Each set of options can be added:
 		  el: '.myMap',
 		  map: { projection: d3.geo.albers() }
 		})
+		.geo()
 		.map({ topoJson: mapUnit }, { projection: d3.geo.mercator() })
 		.render();
 

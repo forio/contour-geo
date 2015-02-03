@@ -3,8 +3,9 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
-        .map(mapUnit, { 
-        	feature: 'counties', 
+        .geo()
+        .map(mapUnit, {
+        	feature: 'counties',
         	projection: d3.geo.albersUsa()
         })
         .render();

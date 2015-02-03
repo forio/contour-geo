@@ -11,8 +11,8 @@
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
 
-    <script src="lib/contour.js"></script>
-    <script src="../dist/contour.geo.js"></script>
+    <script src="../dist/contour.min.js"></script>
+    <script src="../dist/contour.geo.min.js"></script>
 
     <style>
 
@@ -134,8 +134,8 @@
     var tooltipTemplate = '<span class="population"><%= population %></span><span class="stateName"><%= name %></span>';
     var numberFormatter = d3.format(',.0f');
 
-    d3.json('us-all.json', function (map) {
-    // d3.json('world.json', function(map) {
+    // d3.json('us-all.json', function (map) {
+    d3.json('world.json', function(map) {
         new Contour({
             el: '.map',
             chart: {
@@ -147,11 +147,10 @@
                 }
             }
         })
-        .USChoropleth({
-            topoJson: map,
-
-        })
-        .smallStatesCallouts()
+        .geo()
+        .worldMap(map)
+        .marker([[-122.490402, 37.786453]], { shape: 'triangle', fill: 'red' })
+        // .smallStatesCallouts()
         // .WorldChoropleth({
         //     topoJson: map,
         //     cssClass: function (d) {

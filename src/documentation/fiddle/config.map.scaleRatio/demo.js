@@ -3,8 +3,9 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
+        .geo()
         .map(mapUnit, {
-        	feature: 'states', 
+        	feature: 'states',
         	scaleRatio: 1.2
         })
         .render();

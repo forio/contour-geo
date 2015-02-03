@@ -3,6 +3,7 @@ $(function () {
         new Contour({
             el: '.myMap'
         })
+        .geo()
         .worldMap(mapUnit, { feature: 'all' })
         .render();
     });

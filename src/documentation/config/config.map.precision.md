@@ -11,6 +11,7 @@ A `precision` of `0` disables adaptive resampling.
 	new Contour({
 		el: '.myMap'
 	})
+    .geo()
 	.map(mapUnit, {
 		precision: 10
 	})

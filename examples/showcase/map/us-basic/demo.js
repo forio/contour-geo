@@ -1,9 +1,17 @@
 $(function () {
-    d3.json('http://forio.com/tools/contour/geo/maps/us-all.json', function(mapUnit) {
+    d3.json('http://forio.com/tools/contour/geo/maps/us.json', function(mapUnit) {
         new Contour({
-            el: '.myMap'
+            el: '.myMap',
+            USMap: {
+                feature: 'counties',
+                fill: function (a) {
+                    return '#ddd';
+                }
+            }
         })
+        .geo()
         .USMap(mapUnit)
+        .tooltip()
         .render();
     });
 });
