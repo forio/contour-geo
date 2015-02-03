@@ -81,7 +81,7 @@ module.exports = function (grunt) {
             concatenate: {
                 options: {
                     sourceMapIncludeSources: true,
-                    sourceMap: false,
+                    sourceMap: true,
                     mangle: false,
                     compress: false,
                     preserveComments: 'all',
@@ -102,7 +102,7 @@ module.exports = function (grunt) {
                     mangle: false,
                     compress: false,
                     preserveComments: 'all',
-                    // beautify: true
+                    beautify: true
                 },
 
                 files: [{
@@ -114,7 +114,7 @@ module.exports = function (grunt) {
     });
 
     // Default task.
-    grunt.registerTask('default', ['uglify:dev', 'uglify:concatenate', 'watch']);
+    grunt.registerTask('default', ['uglify:dev', 'watch']);
     grunt.registerTask('production', ['uglify:minify', 'uglify:concatenate', 'releaseNotes']);
     grunt.registerTask('relase', function (type) {
         type = type ? type : 'patch';
