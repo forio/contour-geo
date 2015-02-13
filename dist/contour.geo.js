@@ -1,8 +1,30 @@
-/*! Contour-Geo - v0.9.111 - 2015-01-23 */
+/*! Contour-Geo - v0.9.112 - 2015-02-12 */
+
 (function(exports, global) {
     global["true"] = exports;
     (function() {
         Contour.geo = Contour.geo || {};
+        var isGeoPointsArray = function(data) {
+            return _.isArray(data) && _.isArray(data[0]) && data[0].length === 2 && _.all(data[0], _.isNumber);
+        };
+        Contour.expose("geo", function() {
+            return {
+                dataNormalizer: function(data, categories) {
+                    // check if data is geographical data, if so, normalizer it that way
+                    // otherwise use the default normalizer
+                    if (isGeoPointsArray(data)) {
+                        // array of tuples-> assume we have an array of longitues and lattitues
+                        return data;
+                    } else {
+                        // use default normalizer
+                        return _.nw.normalizeSeries.apply(this, arguments);
+                    }
+                },
+                isSupportedDataFormat: function(data) {
+                    return !isGeoPointsArray(data) && _.nw.isSupportedDataFormat(data);
+                }
+            };
+        });
     })();
     (function() {
         "use strict";
@@ -34,7 +56,7 @@
     *
     * Map visualizations require a TopoJSON file with the topology to draw. Because of this, typically map visualizations are created as part of a callback function passed to a `d3.json()` call that parses the TopoJSON file. 
     *
-    * When you [download Contour-Geo](get_contour.html), a few TopoJSON files are included. You can also [create your own](#topojosn).
+    * When you [download Contour-Geo](get_contour.html), a few TopoJSON files are included. You can also [create your own](#topojson).
     *
     * ### Example:
     *
@@ -99,10 +121,62 @@
     })();
     (function() {
         "use strict";
+        var shapes = {
+            circle: function(data, layer, options) {
+                var projection = options.map.projection;
+                return layer.append("circle").attr("cx", function(d) {
+                    return projection(d)[0];
+                }).attr("cy", function(d) {
+                    return projection(d)[1];
+                }).attr("r", options.marker.size / 2 + "px").attr("fill", options.marker.fill);
+            },
+            triangle: function(data, layer, options) {
+                var projection = options.map.projection;
+                var size = options.marker.size;
+                var points = [ -.5, 0, 0, -1, .5, 0 ].map(function(p) {
+                    return p * size;
+                }).join(" ");
+                return layer.append("polyline").attr("transform", function(d) {
+                    var proj = projection(d);
+                    return "translate(" + proj[0] + "," + proj[1] + ")";
+                }).attr("points", points).attr("fill", options.marker.fill);
+            }
+        };
+        var defaults = {
+            marker: {
+                // size of the marker (it may mean different things for different shapes)
+                size: 10,
+                // shape of the marker
+                shape: shapes.circle,
+                // a class name or function that returns a class name to be set onto each feature
+                cssClass: undefined,
+                fill: undefined
+            }
+        };
+        function render(data, layer, options) {
+            var shapeRenderer = typeof options.marker.shape === "string" ? shapes[options.marker.shape] : options.marker.shape;
+            // add shape to layer
+            var sel = layer.selectAll(".geo-marker").data(data);
+            var cssFn = function(add) {
+                return function() {
+                    var extraClasses = typeof add === "function" ? add.call() : add ? add : "";
+                    return "geo-marker " + extraClasses;
+                };
+            };
+            sel.enter().call(_.partialRight(_.partial(shapeRenderer, data), options));
+            sel.attr("class", cssFn(options.marker.cssClass));
+            sel.exit().remove();
+        }
+        render.defaults = defaults;
+        render.shapes = shapes;
+        Contour.export("marker", render);
+    })();
+    (function() {
+        "use strict";
         /**
     * Adds callouts for several of the smaller states on the East Coast of the US.
     *
-    * This visualization requires `.map()` and a `projection` of `albers` or `albersUsa`. It is suitable for use with the default `us.json` and `us-all.json` TopoJSON files included with Contour-Geo. 
+    * This visualization requires [`.map()`](#map) and a [`projection`](#geo_config/config.map.projection) of `albers` or `albersUsa`. It is suitable for use with the default `us.json` and `us-all.json` TopoJSON files included with Contour-Geo. 
     *
     * ### Example:
     *
@@ -165,7 +239,9 @@
             return this.choropleth.renderer.call(this, data, layer, options);
         };
         /**
-    * Adds a map visualization to the Contour instance, using the `albersUsa` projection and a TopoJSON file with data on US states, such as the `us.json` and `us-all.json` TopoJSON files included with Contour-Geo. This visualization is a shorthand for configuring a `.map()` visualization that is focused on the US.
+    * Adds a map visualization to the Contour instance, using the `albersUsa` projection and a TopoJSON file with data on US states, such as the `us.json` and `us-all.json` TopoJSON files included with Contour-Geo. 
+    *
+    * This visualization is a shorthand for configuring a [`.map()`](#map) visualization that is focused on the US.
     *
     * ### Example:
     *
@@ -181,7 +257,7 @@
     */
         Contour.export("USMap", renderer);
     })();
-    Contour.geo.version = "0.9.111";
+    Contour.geo.version = "0.9.112";
     (function() {
         "use strict";
         var renderer = function(data, layer, options) {
@@ -202,7 +278,9 @@
             return this.choropleth.renderer.call(this, data, layer, options);
         };
         /**
-    * Adds a map visualization to the Contour instance, using the `miller` projection if available (include "http://d3js.org/d3.geo.projection.v0.min.js"), or the `equirectangular` projection otherwise, and a TopoJSON file with data on world countries such as the `world.json` TopoJSON file included with Contour-Geo. This visualization is a shorthand for configuring a `.map()` visualization for the world.
+    * Adds a map visualization to the Contour instance, using the `miller` projection if available (include `<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>`), or the `equirectangular` projection otherwise, and a TopoJSON file with data on world countries such as the `world.json` TopoJSON file included with Contour-Geo. 
+    *
+    * This visualization is a shorthand for configuring a [`.map()`](#map) visualization for the world.
     *
     * ### Example:
     *
@@ -221,3 +299,4 @@
 })({}, function() {
     return this;
 }());
+//# sourceMappingURL=contour.geo.js.map
