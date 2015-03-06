@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="http://forio.com/tools/contour/contour.min.css">
+
+<script src="http://d3js.org/d3.v3.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+<script src="./../../../../dist/contour.js"></script>
+<script src="./../../../../dist/contour.geo.min.js"></script>
+
+<div class="myBivariateMap"></div>
+<script>
+  var tooltipTemplate = _.template('<span class="stateName"><%= name %></span>');
+
+  d3.json('http://forio.com/tools/contour/geo/maps/us-all.json', function (us) {
+    new Contour({
+      el: '.myBivariateMap',
+      tooltip: {
+        formatter: function (d, i, j) {
+          return tooltipTemplate({ name: d.properties.name });
+        }
+      }
+    })
+    .geo()
+    .USMap(us, {
+      cssClass: function (d) {
+        return '#0ff';
+      }
+    })
+    .smallStatesCallouts()
+    .tooltip()
+    .render();
+  });
+</script>

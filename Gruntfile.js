@@ -5,6 +5,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-tagrelease');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+
 
 
     // Project configuration.
@@ -16,6 +18,16 @@ module.exports = function (grunt) {
                 files: ['src/scripts/**/*.js'],
                 tasks: ['uglify:dev']
             }
+        },
+
+        connect: {
+          server: {
+            options: {
+              base: '.',
+              port: 8000,
+              keepalive: true,
+            }
+          }
         },
 
         releaseNotes: {
