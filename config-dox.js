@@ -9,6 +9,13 @@ var d3 = {
     }
 };
 
+// shim for shapres so they can be used in the default properties
+var shapes = {
+    circle: function () {},
+    triangle: function () {},
+    square: function () {}
+};
+
 
 String.prototype.regexIndexOf = function(regex, start) {
     var indexOf = this.substring(start || 0).search(regex);
