@@ -25,8 +25,8 @@ If the `cssClass` is a function, the function takes in the `geometries` data fro
     })
     .geo()
     .map(mapUnit, {
-    	cssClass: function(gemo) {
-    		return "q" + gemo.id + "-9";
+    	cssClass: function(geom) {
+    		return "q" + geom.id + "-9";
     	}
     })
     .render();
