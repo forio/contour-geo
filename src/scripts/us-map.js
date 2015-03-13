@@ -16,12 +16,15 @@
     /**
     * Adds a map visualization to the Contour instance, using the `albersUsa` projection and a TopoJSON file with data on US states, such as the `us.json` and `us-all.json` TopoJSON files included with Contour-Geo. 
     *
+    * This visualization requires the [`.geo()`](#geo) frame.
+    * 
     * This visualization is a shorthand for configuring a [`.map()`](#map) visualization that is focused on the US.
     *
     * ### Example:
     *
     *       d3.json('us-all.json', function (us) {
     *           new Contour({ el: '.map' })
+    *               .geo()
     *               .USMap(us)
     *               .render()
     *       });
