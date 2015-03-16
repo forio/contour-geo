@@ -4,7 +4,7 @@
     var defaults = {
         map: {
             // topoJson feature to render as a map (will acccess topoJson.objects[options.feature])
-            feature: undefined,
+            feature: 'all',
             // scale to be used by the projection,
             // if left undefined, scale will be chart.plotWidth * scaleRatio
             scale: undefined,
