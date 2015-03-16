@@ -7,6 +7,7 @@ Adding a map visualization requires:
 
  * Having a TopoJSON file containing the geometry for your map. You can [make your own TopoJSON file](#topojson) or use one of the [geometries included with Contour-Geo](#geo-included).
  * Including `contour-geo.js` in your page. For example, `<script src="yourPath/contour.geo.min.js"></script>`. See the [Get Contour](get_contour.html) page to download this library.
+ * Adding the [`.geo()` visualization](#geo) to your Contour instance. 
 
 Like the [core Contour visualizations](#visualizations), each Contour-Geo visualization takes two arguments:
 

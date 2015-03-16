@@ -4,12 +4,15 @@
     /**
     * Adds callouts for several of the smaller states on the East Coast of the US.
     *
+    * This visualization requires the [`.geo()`](#geo) frame.
+    *
     * This visualization requires [`.map()`](#map) and a [`projection`](#geo_config/config.map.projection) of `albers` or `albersUsa`. It is suitable for use with the default `us.json` and `us-all.json` TopoJSON files included with Contour-Geo. 
     *
     * ### Example:
     *
     *       d3.json('us-all.json', function (us) {
     *           new Contour({ el: '.map' })
+    *               .geo()
     *               .map(us, { projection: d3.geo.albersUsa() })
     *               .smallStatesCallouts()
     *               .render()
