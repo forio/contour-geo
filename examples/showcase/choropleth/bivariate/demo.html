@@ -4,29 +4,52 @@
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
 <script src="./../../../../dist/contour.js"></script>
+<script src="./data/CAinflow.js"></script>
+<script src="./data/statePop.js"></script>
 <script src="./../../../../dist/contour.geo.min.js"></script>
-
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<link href="./demo.css" rel="stylesheet" type="text/css">
 <div class="myBivariateMap"></div>
 <script>
-  var tooltipTemplate = _.template('<span class="stateName"><%= name %></span>');
 
-  d3.json('http://forio.com/tools/contour/geo/maps/us-all.json', function (us) {
-    new Contour({
-      el: '.myBivariateMap',
-      tooltip: {
-        formatter: function (d, i, j) {
-          return tooltipTemplate({ name: d.properties.name });
-        }
+// map the population flow number to a color class
+var flowPerPop = {};
+var stateKeys = _.keys(window.demo.USpop);
+_.each(stateKeys, function(key){
+  var outFlowPerPop = window.demo.CAInflow[key] / window.demo.USpop[key] * 10000;
+  flowPerPop[key] = outFlowPerPop;
+})
+
+var maxFlowPerKey = _.max(_.keys(flowPerPop), function(state){
+  return flowPerPop[state];
+});
+var maxPerFlow = flowPerPop[maxFlowPerKey];
+
+var colorScale = d3.scale.quantize()
+  .domain([0, maxPerFlow])
+  .range(d3.range(9)
+  .map(function(i) { return "q" + i + "-9"; }));
+
+var numberFormatter = d3.format(',.0f');
+var tooltipTemplate = _.template('<span class="population"><%= population %></span><span class="stateName"><%= name %></span>');
+
+d3.json('http://forio.com/tools/contour/geo/maps/us-all.json', function (us) {
+  new Contour({
+    el: '.myBivariateMap',
+    tooltip: {
+      formatter: function (d, i, j) {
+        return tooltipTemplate({ name: d.properties.name, population: numberFormatter(flowPerPop[d.id]) });
       }
-    })
-    .geo()
-    .USMap(us, {
-      cssClass: function (d) {
-        return '#0ff';
-      }
-    })
-    .smallStatesCallouts()
-    .tooltip()
-    .render();
-  });
+    }
+  })
+  .geo()
+  .USMap(us, {
+    cssClass: function (d) {
+      return colorScale(flowPerPop[d.id]);
+    }
+  })
+  .smallStatesCallouts()
+  .tooltip()
+  .render();
+});
 </script>

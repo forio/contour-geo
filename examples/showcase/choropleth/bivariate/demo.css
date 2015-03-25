@@ -1,0 +1,67 @@
+.background {
+  fill: none;
+  pointer-events: all;
+}
+
+#states {
+  fill: #dbdde3;
+}
+
+#state-borders {
+  fill: none;
+  stroke: #999;
+  stroke-width: 0.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+/* Blue hue colors from Color Brewer http://colorbrewer2.org/  */
+.q0-9{fill:rgb(247,251,255)}
+.q1-9{fill:rgb(222,235,247)}
+.q2-9{fill:rgb(198,219,239)}
+.q3-9{fill:rgb(158,202,225)}
+.q4-9{fill:rgb(107,174,214)}
+.q5-9{fill:rgb(66,146,198)}
+.q6-9{fill:rgb(33,113,181)}
+.q7-9{fill:rgb(8,81,156)}
+.q8-9{fill:rgb(8,48,107)}
+
+.nw-tooltip {
+  padding: 1em;
+}
+
+.stateName {
+  font-size: 12px;
+  display: block;
+  margin-top: 1em;
+}
+
+.population:before {
+  content: 'Population Inflow: ';
+}
+
+.population {
+  font-size: 14px;
+  display: block;
+}
+
+.small-state-callout {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.small-state-callout line {
+  fill: none;
+  stroke: #999;
+}
+.small-state-callout rect {
+  stroke: #999;
+}
+
+.small-state-callout text {
+  fill: #444;
+  stroke: none;
+  text-anchor: middle;
+  pointer-events: none;
+}
