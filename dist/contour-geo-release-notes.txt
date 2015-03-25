@@ -1,9 +1,0 @@
-  * Updated all documentation and showcase examples to include .geo()
-  * Added marker visualization
-  * Added overrides for supported formats when using .geo()
-  * grunt file clean up
-  * docs content edits and some link fixing
-  * Merge pull request #17 from forio/more-showcase-edits
-  * fiddles to have correct paths to topojson files
-  * Merge pull request #16 from forio/showcase-testing-branch
-  * maps --> geo in intro title, since we call it geo everywhere else
