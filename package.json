@@ -1,7 +1,7 @@
 {
   "name": "Contour-Geo",
   "description": "Geo related components for Forio Contour",
-  "version": "0.9.112",
+  "version": "0.9.113",
   "repository": {
     "type": "git",
     "url": "https://github.com/forio/contour-geo"

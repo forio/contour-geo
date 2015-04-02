@@ -1,4 +1,4 @@
-/*! Contour-Geo - v0.9.112 - 2015-03-05 */
+/*! Contour-Geo - v0.9.113 - 2015-04-01 */
 
 (function(exports, global) {
     global["true"] = exports;
@@ -7,6 +7,24 @@
         var isGeoPointsArray = function(data) {
             return _.isArray(data) && _.isArray(data[0]) && data[0].length === 2 && _.all(data[0], _.isNumber);
         };
+        /**
+    * Provides a geographical 'frame' for the Contour instance. 
+    *
+    * This is required for all visualizations displayed in a geographical format -- maps, choropleths, specialized small-states callouts, etc. (Adding `.geo` to your Contour instance is loosely analogous to adding `.cartesian()`, which supplies the Cartesian frame for bar, line, and area charts.)
+    *
+    * ###Example:
+    *
+    *   d3.json('world.json', function(mapUnit) {
+    *       new Contour({
+    *           el: '.myMap'
+    *       })
+    *       .geo()
+    *       .map(mapUnit, {center: [-122, 37]})
+    *       .render();
+    *   })
+    *
+    * @function geo
+    */
         Contour.expose("geo", function() {
             return {
                 dataNormalizer: function(data, categories) {
@@ -31,7 +49,7 @@
         var defaults = {
             map: {
                 // topoJson feature to render as a map (will acccess topoJson.objects[options.feature])
-                feature: undefined,
+                feature: "all",
                 // scale to be used by the projection,
                 // if left undefined, scale will be chart.plotWidth * scaleRatio
                 scale: undefined,
@@ -169,6 +187,41 @@
         }
         render.defaults = defaults;
         render.shapes = shapes;
+        /**
+    * Adds one or more marker visualizations to the Contour instance. Markers allow you to add small shapes (circles or triangles) to your map, for example to indicate features of interest.
+    *
+    * The first argument to the visualization is an array of [longitude, latitude] pairs where the markers should appear. 
+    *
+    * Longitude and latitude are specified in degrees.
+    *
+    * * Longitude is positive for East, negative for West.
+    * * Latitude is positive for North, negative for South.
+    *
+    * This visualization requires the [`.geo()`](#geo) frame.
+    *
+    * To override any of the default configuration options in a maker, include the `marker` configuration object in the configuration options that you pass to your Contour constructor, or in the configuration object passed to the particular marker visualization.
+    *
+    * ### Example:
+    *
+    *       d3.json('us-states.json', function (mapUnit) {
+    *           new Contour({
+    *                   el: '.map',
+    *                   marker: {
+    *                       fill: '#0000ff'
+    *                   }
+    *               })
+    *               .geo()
+    *               .USMap(mapUnit)
+    *               .marker([[-122, 37], [-87, 41]], {shape: 'circle'})
+    *               .marker([[-120, 39]], {shape: 'triangle'})
+    *               .render();
+    *       });
+    *
+    *
+    * @name marker(data, options)
+    * @param {object} data The data (coordinates) describing where to render with this visualization on the `.map()`.
+    * @param {object} options (Optional) Configuration options particular to this visualization that override the defaults.
+    */
         Contour.export("marker", render);
     })();
     (function() {
@@ -176,12 +229,15 @@
         /**
     * Adds callouts for several of the smaller states on the East Coast of the US.
     *
+    * This visualization requires the [`.geo()`](#geo) frame.
+    *
     * This visualization requires [`.map()`](#map) and a [`projection`](#geo_config/config.map.projection) of `albers` or `albersUsa`. It is suitable for use with the default `us.json` and `us-all.json` TopoJSON files included with Contour-Geo. 
     *
     * ### Example:
     *
     *       d3.json('us-all.json', function (us) {
     *           new Contour({ el: '.map' })
+    *               .geo()
     *               .map(us, { projection: d3.geo.albersUsa() })
     *               .smallStatesCallouts()
     *               .render()
@@ -241,12 +297,15 @@
         /**
     * Adds a map visualization to the Contour instance, using the `albersUsa` projection and a TopoJSON file with data on US states, such as the `us.json` and `us-all.json` TopoJSON files included with Contour-Geo. 
     *
+    * This visualization requires the [`.geo()`](#geo) frame.
+    * 
     * This visualization is a shorthand for configuring a [`.map()`](#map) visualization that is focused on the US.
     *
     * ### Example:
     *
     *       d3.json('us-all.json', function (us) {
     *           new Contour({ el: '.map' })
+    *               .geo()
     *               .USMap(us)
     *               .render()
     *       });
@@ -257,7 +316,7 @@
     */
         Contour.export("USMap", renderer);
     })();
-    Contour.geo.version = "0.9.112";
+    Contour.geo.version = "0.9.113";
     (function() {
         "use strict";
         var renderer = function(data, layer, options) {
@@ -278,7 +337,9 @@
             return this.choropleth.renderer.call(this, data, layer, options);
         };
         /**
-    * Adds a map visualization to the Contour instance, using the `miller` projection if available (include `<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>`), or the `equirectangular` projection otherwise, and a TopoJSON file with data on world countries such as the `world.json` TopoJSON file included with Contour-Geo. 
+    * Adds a map visualization to the Contour instance, using the `miller` projection if available (include `<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>`), or the `equirectangular` projection otherwise, and a TopoJSON file with data on world countries such as the `world.json` TopoJSON file included with Contour-Geo.
+    *
+    * This visualization requires the [`.geo()`](#geo) frame.
     *
     * This visualization is a shorthand for configuring a [`.map()`](#map) visualization for the world.
     *
@@ -286,6 +347,7 @@
     *
     *       d3.json('world.json', function (world) {
     *           new Contour({ el: '.map' })
+    *               .geo()
     *               .worldMap(world)
     *               .render()
     *       });
