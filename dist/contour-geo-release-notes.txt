@@ -1,0 +1,1 @@
+  * updated bower json version
