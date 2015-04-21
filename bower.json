@@ -1,13 +1,13 @@
 {
   "name": "Contour-Geo",
   "description": "Geo related components for Forio Contour",
-  "version": "0.9.110",
+  "version": "0.9.114",
   "main": [
     "dist/contour.geo.js"
   ],
   "ignore": [
     "**/*",
-    "!dist/contour.{js,css}"
+    "!dist/**/*.*"
   ],
   "dependencies": {
     "lodash": "~2.4.1",
