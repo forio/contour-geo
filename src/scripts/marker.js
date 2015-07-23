@@ -51,8 +51,8 @@
             .data(data);
 
         var cssFn = function (add) {
-            return function () {
-                var extraClasses = (typeof add === 'function' ? add.call() : add ? add : '');
+            return function (d, i, j) {
+                var extraClasses = (typeof add === 'function' ? add.call(this, d, i, j) : add ? add : '');
                 return 'geo-marker ' +  extraClasses;
             };
         };
@@ -73,7 +73,7 @@
     /**
     * Adds one or more marker visualizations to the Contour instance. Markers allow you to add small shapes (circles or triangles) to your map, for example to indicate features of interest.
     *
-    * The first argument to the visualization is an array of [longitude, latitude] pairs where the markers should appear. 
+    * The first argument to the visualization is an array of [longitude, latitude] pairs where the markers should appear.
     *
     * Longitude and latitude are specified in degrees.
     *

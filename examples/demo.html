@@ -149,7 +149,12 @@
         })
         .geo()
         .worldMap(map)
-        .marker([[-122.490402, 37.786453]], { shape: 'triangle', fill: 'red' })
+        .marker([[-122.490402, 37.786453]], {
+            shape: 'triangle', fill: 'red',
+            cssClass: function (d, i, j) {
+                alert(d);
+            }
+         })
         // .smallStatesCallouts()
         // .WorldChoropleth({
         //     topoJson: map,
