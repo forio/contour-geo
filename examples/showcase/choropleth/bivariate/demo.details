@@ -1,1 +1,8 @@
-population flow data from: http://www.irs.gov/pub/irs-soi/stateinflow1011.dat
+---
+ name: US Map, Shaded by Bivariate Data
+ description: TODO- population flow data from: http://www.irs.gov/pub/irs-soi/stateinflow1011.dat
+ authors:
+   - Forio
+ normalize_css: no
+ ...
+
