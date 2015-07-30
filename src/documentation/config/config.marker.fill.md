@@ -4,7 +4,7 @@
 
 The color (hexadecimal) to apply to each marker. This can be a literal string, or any function that returns a string with the color.
 
-If the `fill` is a function, the function takes in the array of longitude, latitude pairs as data. 
+If the `fill` is a function, the function takes in the array of [longitude, latitude] pairs as data. 
 
 Longitude and latitude are specified in degrees.
 

@@ -13,7 +13,7 @@ Longitude and latitude are specified in degrees.
 
 This visualization requires the [`.geo()`](#geo) frame.
 
-To override any of the default configuration options in a maker, include the `marker` configuration object in the configuration options that you pass to your Contour constructor, or in the configuration object passed to the particular marker visualization.
+To override any of the default configuration options in a marker, include the `marker` configuration object in the configuration options that you pass to your Contour constructor, or in the configuration object passed to the particular marker visualization.
 
 **Example:**
 

@@ -23,5 +23,5 @@ For a marker with [shape](#geo_config/config.marker.shape) of `triangle`, the si
 
 **Notes:**
 
-If you define your own [`shape`](#geo_config/config.marker.shape), by setting `shape` to a function that returns an SVG layer, you can reference `options.marker.size` within your function and to scale your own marker appropriately.
+If you define your own [`shape`](#geo_config/config.marker.shape), by setting `shape` to a function that returns an SVG layer, you can reference `options.marker.size` within your function to scale your own marker appropriately.
 
