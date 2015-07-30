@@ -1,4 +1,4 @@
-#### **config** : {<%= type %>}
+#### **config** : {<%= type %>} (Geo)
 
 For each Contour-Geo visualization that you add to your Contour instance (e.g. [`map`](#map), [`smallStatesCallout`](#smallStatesCallout)), you can optionally pass in a configuration object. This object is a set of configuration options specific to that visualization.
 
