@@ -17,7 +17,7 @@ All of the [D3 Geo Projections](http://github.com/mbostock/d3/wiki/Geo-Projectio
 	})
 	.render();
 
-*[Try it.](<%= jsFiddleLink %>)*
+<!-- *[Try it.](<%= jsFiddleLink %>)* -->
 
 **Notes:**
 
