@@ -21,11 +21,11 @@ $(function () {
             }
         })
         .geo()
-        .map(mapUnit, { feature: 'ca' })
-        .map(mapUnit, { feature: 'lakes_ca' })
-        .map(mapUnit, { feature: 'lakes_supp' })
-        .map(mapUnit, { feature: 'rivers_large' })
-        .map(mapUnit, { feature: 'rivers_small' })
+        .USMap(mapUnit, { feature: 'ca' })
+        .USMap(mapUnit, { feature: 'lakes_ca' })
+        .USMap(mapUnit, { feature: 'lakes_supp' })
+        .USMap(mapUnit, { feature: 'rivers_large' })
+        .USMap(mapUnit, { feature: 'rivers_small' })
         .tooltip()
         .render();
     });
