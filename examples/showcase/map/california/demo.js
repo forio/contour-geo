@@ -2,7 +2,7 @@ $(function () {
 
     var tooltipTemplate = _.template('<span class="waterName"><%= name %></span>');
 
-    d3.json('./ca_with_lakes_and_rivers.json', function(mapUnit) {
+    d3.json('https://forio.com/tools/contour/geo/gallery/ca_with_lakes_and_rivers.json', function(mapUnit) {
 
         new Contour({
             el: '.myMap',
