@@ -1,4 +1,4 @@
-/*! Contour-Geo - v2.0.0 - 2015-07-31 */
+/*! Contour-Geo - v1.0.0 - 2015-07-31 */
 
 (function(exports, global) {
     global["true"] = exports;
@@ -319,7 +319,7 @@
     */
         Contour.export("USMap", renderer);
     })();
-    Contour.geo.version = "2.0.0";
+    Contour.geo.version = "1.0.0";
     (function() {
         "use strict";
         var renderer = function(data, layer, options) {

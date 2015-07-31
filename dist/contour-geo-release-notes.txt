@@ -1,2 +1,0 @@
-  * recenter california example
-  * map --> USMap again
