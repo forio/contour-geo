@@ -14,9 +14,13 @@ If the `fill` is a function, the function takes in the `geometries` data from th
     .geo()
     .map(mapUnit, {
     	fill: function(geom) {
-    		if (geom.id in ('NC','ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY')) { return: '#ffffff'; }
-    		else { return '#000000'; }
-    	}
+    		if (['NC','ND', 'NE', 'NH', 'NJ', 'NM', 
+    			'NV', 'NY'].indexOf(geom.id) !== -1) {
+                    return 'blue';
+                } else {
+                    return 'gray';
+                }
+            }
     })
     .render();
 

@@ -6,10 +6,10 @@ $(function () {
         .geo()
         .map(mapUnit, {
             fill: function(geom) {
-                if (geom.id in ('NC','ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY')) {
-                    return '#fff';
+                if (['NC','ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY'].indexOf(geom.id) !== -1) {
+                    return 'blue';
                 } else {
-                    return '#000';
+                    return 'gray';
                 }
             }
         })

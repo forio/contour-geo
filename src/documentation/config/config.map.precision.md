@@ -12,7 +12,7 @@ A `precision` of `0` disables adaptive resampling.
 		el: '.myMap'
 	})
     .geo()
-	.map(mapUnit, {
+	.USMap(mapUnit, {
 		precision: 10
 	})
 	.render();

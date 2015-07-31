@@ -6,7 +6,9 @@ $(function () {
         .geo()
         .map(mapUnit, {
             feature: 'countries',
+            // center at San Francisco
             center: [-122, 37],
+            // translate by pixels and end up near Seattle
             translation: [300,400]
         })
         .render();

@@ -24,7 +24,7 @@ If the `cssClass` is a function, the function takes in the `geometries` data fro
         el: '.myMap'
     })
     .geo()
-    .map(mapUnit, {
+    .USMap(mapUnit, {
     	cssClass: function(geom) {
     		return "q" + geom.id + "-9";
     	}

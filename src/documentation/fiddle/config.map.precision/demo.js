@@ -4,7 +4,7 @@ $(function () {
             el: '.myMap'
         })
         .geo()
-        .map(mapUnit, {
+        .USMap(mapUnit, {
         	precision: 10
         })
         .render();
