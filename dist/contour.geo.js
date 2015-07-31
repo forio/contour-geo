@@ -1,4 +1,4 @@
-/*! Contour-Geo - v0.9.117 - 2015-07-15 */
+/*! Contour-Geo - v1.0.0 - 2015-07-31 */
 
 (function(exports, global) {
     global["true"] = exports;
@@ -72,6 +72,8 @@
         /**
     * Adds a map visualization to the Contour instance.
     *
+    * This visualization requires the [`.geo()`](#geo) frame.
+    *
     * Map visualizations require a TopoJSON file with the topology to draw. Because of this, typically map visualizations are created as part of a callback function passed to a `d3.json()` call that parses the TopoJSON file. 
     *
     * When you [download Contour-Geo](get_contour.html), a few TopoJSON files are included. You can also [create your own](#topojson).
@@ -85,6 +87,7 @@
     *                       projection: d3.geo.albersUsa()
     *                   }
     *               })
+    *               .geo()
     *               .map(us)
     *               .render();
     *       });
@@ -176,8 +179,8 @@
             // add shape to layer
             var sel = layer.selectAll(".geo-marker").data(data);
             var cssFn = function(add) {
-                return function() {
-                    var extraClasses = typeof add === "function" ? add.call() : add ? add : "";
+                return function(d, i, j) {
+                    var extraClasses = typeof add === "function" ? add.call(this, d, i, j) : add ? add : "";
                     return "geo-marker " + extraClasses;
                 };
             };
@@ -190,7 +193,7 @@
         /**
     * Adds one or more marker visualizations to the Contour instance. Markers allow you to add small shapes (circles or triangles) to your map, for example to indicate features of interest.
     *
-    * The first argument to the visualization is an array of [longitude, latitude] pairs where the markers should appear. 
+    * The first argument to the visualization is an array of [longitude, latitude] pairs where the markers should appear.
     *
     * Longitude and latitude are specified in degrees.
     *
@@ -316,7 +319,7 @@
     */
         Contour.export("USMap", renderer);
     })();
-    Contour.geo.version = "0.9.117";
+    Contour.geo.version = "1.0.0";
     (function() {
         "use strict";
         var renderer = function(data, layer, options) {
