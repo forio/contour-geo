@@ -7,7 +7,7 @@ $(function () {
         new Contour({
             el: '.myMap',
             map: {
-                center: [-120, 38],
+                center: [-122, 37],
                 scaleRatio: 2.6
             },
             tooltip: {
@@ -21,11 +21,11 @@ $(function () {
             }
         })
         .geo()
-        .USMap(mapUnit, { feature: 'ca' })
-        .USMap(mapUnit, { feature: 'lakes_ca' })
-        .USMap(mapUnit, { feature: 'lakes_supp' })
-        .USMap(mapUnit, { feature: 'rivers_large' })
-        .USMap(mapUnit, { feature: 'rivers_small' })
+        .map(mapUnit, { feature: 'ca' })
+        .map(mapUnit, { feature: 'lakes_ca' })
+        .map(mapUnit, { feature: 'lakes_supp' })
+        .map(mapUnit, { feature: 'rivers_large' })
+        .map(mapUnit, { feature: 'rivers_small' })
         .tooltip()
         .render();
     });
