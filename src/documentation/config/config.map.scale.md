@@ -14,7 +14,7 @@ If left undefined, the `scale` is set to [`chart.plotWidth`](#core_config/config
     .geo()
 	.map(mapUnit, {
 		feature: 'states',
-		scale: 800
+		scale: 80
 	})
 	.render();
 

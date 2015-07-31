@@ -6,7 +6,7 @@ $(function () {
         .geo()
         .map(mapUnit, {
         	feature: 'states',
-        	scale: 800
+        	scale: 80
         })
         .render();
     });

@@ -19,7 +19,8 @@ Must remain undefined if using the `d3.geo.albersUsa()` [projection](#geo_config
     .geo()
     .map(mapUnit, {
         feature: 'countries',
-        center: [-122, 37]
+        center: [-122, 37],
+        scale: 500
     })
     .render();
 

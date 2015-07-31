@@ -17,7 +17,9 @@ Alternatively, pass the options as the second argument to the `map` visualizatio
 	.geo()
 	.map(mapUnit, {
 		// additional map-specific configuration options
-		feature: 'countries'
+		feature: 'countries',
+		scale: 500,
+        center: [-122, 37]
 	})
 	.render();
 
