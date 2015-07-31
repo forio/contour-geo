@@ -11,7 +11,6 @@ $(function () {
         })
         .geo()
         .USMap(mapUnit)
-        .tooltip()
         .render();
     });
 });
