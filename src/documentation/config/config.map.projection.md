@@ -17,8 +17,6 @@ All of the [D3 Geo Projections](http://github.com/mbostock/d3/wiki/Geo-Projectio
 	})
 	.render();
 
-<!-- *[Try it.](<%= jsFiddleLink %>)* -->
-
 **Notes:**
 
 Typically when you change the `projection` from the default value, you also need to change the [`center`](#geo_config/config.map.center) and [`translation`](#geo_config/config.map.translation).
