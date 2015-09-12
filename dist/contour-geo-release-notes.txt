@@ -1,29 +1,8 @@
-  * updated version file to 1.0.0
-  * updated version file to 1.0.0
-  * updated version file to 1.0.0
-  * updated version file to 2.0.0
-  * recenter california example
-  * map --> USMap again
-  * updated version file to 1.0.0
-  * actually fix map --> USMap for fill
-  * comment out jsfiddle link for projection until we can fix it
-  * better font fix, per andy, for california example
-  * font update for california example
-  * fixing fiddles for geo: map --> USMap, add more css, fix fill function example, clarify translation
-  * pull topojson from central location so fiddle works.
-  * world example should use countries now that we updated topojson
-  * remove tooltip from map of counties (we don't have info to show)
-  * change top-level world.json from "all" to "countries"
-  * jsfiddle fixes after testing -- mostly just rescaling things for easier viewing
-  * move choropleth example to "in progress" folder since we don't want them in gallery yet (not different from map)
-  * minor mitigation to help a little until fnm-52 is fixed
-  * Merge pull request #27 from forio/issue-18-geo-and-marker-docs
-  * fnm-88
-  * #18 / #24: docs for marker.cssClass
-  * remove choropleth generated template until it's different from map. see comment in src/scripts/choropleth.js
-  * fix typos in config.marker docs
-  * add .geo() to map.js example
-  * Merge pull request #25 from forio/bivariate-out-of-showcase
-  * move bivariate example out of showcase
-  * correct format for .details file; content still needs to be updated
-  * Fixed arguments passed into he cssClass function for markers
+  * Merge pull request #29 from forio/issues-28
+  * Merge pull request #30 from forio/topojson-dist-only
+  * update examples/demo (which is NEVER USED in building or contour-showcase) to look at dist folder for topojson files
+  * remove topojson files from examples directory
+  * change feature for world.json from "all" to "countries"
+  * issue-28: add back in jsfiddle for map.projection now that sample code works
+  * issue-28: fix sample code per jaime
+  * contour-geo #28: commenting out the jsfiddle for this until #28 is fixed didn't work. remove completely so it doesn't appear in the generated docs
