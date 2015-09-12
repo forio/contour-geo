@@ -5,9 +5,10 @@ $(function () {
         })
         .geo()
         .map(mapUnit, {
-        	projection: d3.geo.azimuthalEqualArea(),
-        	feature: 'countries',
-        	scale: 300
+            projection: d3.geo.azimuthalEqualArea(),
+            feature: 'countries',
+            scale: 100
         })
         .render();
+    })
 });
