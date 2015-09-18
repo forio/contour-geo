@@ -4,7 +4,7 @@ $(function () {
             el: '.myMap'
         })
         .geo()
-        .worldMap(mapUnit, { feature: 'countries' })
+        .map(mapUnit, { feature: 'countries' })
         .render();
     });
 });
