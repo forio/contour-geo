@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const pkg = require('./package.json');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const extractLess = new ExtractTextPlugin({
     filename: '[name].css',
@@ -23,7 +24,7 @@ module.exports = {
     d3: 'd3',
     $: 'jQuery',
     _: 'lodash',
-    'Contour': 'Contour'
+    'contour': 'Contour'
   },
   module: {
     rules: [
@@ -51,7 +52,12 @@ module.exports = {
     new webpack.DefinePlugin({
       VERSION: JSON.stringify(pkg.version)
     }),
-    extractLess
+    extractLess,
+    new CopyWebpackPlugin([
+      { from: './node_modules/contour/dist/contour.min.js' },
+      { from: './node_modules/contour/dist/contour.min.js.map' },
+      { from: './node_modules/contour/dist/contour.min.css' }
+    ])
   ],
   devtool: 'source-map',
 };
