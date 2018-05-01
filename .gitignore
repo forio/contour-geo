@@ -69,6 +69,7 @@ simulation_settings.txt
 #########
 build/
 public/
+dist/
 
 # Generic Helper Files #
 ########################

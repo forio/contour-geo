@@ -1,1 +1,1 @@
-Contour.geo.version = '1.0.1';
+Contour.geo = { version:  '1.0.1' }
